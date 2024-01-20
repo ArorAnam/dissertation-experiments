@@ -52,4 +52,7 @@ df1.write.saveAsTable("some_people")
 
 spark.sql("select * from some_people").show()
 
+# use cProfile for specfic function
+## cProfile.run('')
+
 
