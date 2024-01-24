@@ -1,0 +1,501 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00       16     0.00     0.00  std::_Deque_iterator<int, int&, int*>::_Deque_iterator(std::_Deque_iterator<int, int&, int*> const&)
+  0.00      0.00     0.00        8     0.00     0.00  std::deque<int, std::allocator<int> >::end()
+  0.00      0.00     0.00        7     0.00     0.00  std::operator==(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&)
+  0.00      0.00     0.00        7     0.00     0.00  std::operator!=(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&)
+  0.00      0.00     0.00        6     0.00     0.00  std::__deque_buf_size(unsigned long)
+  0.00      0.00     0.00        6     0.00     0.00  int const& std::forward<int const&>(std::remove_reference<int const&>::type&)
+  0.00      0.00     0.00        5     0.00     0.00  SumOperation::recalc_combine(int&, int)
+  0.00      0.00     0.00        5     0.00     0.00  std::_Deque_iterator<int, int&, int*>::operator*() const
+  0.00      0.00     0.00        5     0.00     0.00  std::_Deque_iterator<int, int&, int*>::operator++(int)
+  0.00      0.00     0.00        5     0.00     0.00  std::_Deque_iterator<int, int&, int*>::operator++()
+  0.00      0.00     0.00        3     0.00     0.00  recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::insert(int)
+  0.00      0.00     0.00        3     0.00     0.00  void __gnu_cxx::new_allocator<int>::construct<int, int const&>(int*, int const&)
+  0.00      0.00     0.00        3     0.00     0.00  void std::allocator_traits<std::allocator<int> >::construct<int, int const&>(std::allocator<int>&, int*, int const&)
+  0.00      0.00     0.00        3     0.00     0.00  std::deque<int, std::allocator<int> >::begin()
+  0.00      0.00     0.00        3     0.00     0.00  std::deque<int, std::allocator<int> >::push_back(int const&)
+  0.00      0.00     0.00        3     0.00     0.00  operator new(unsigned long, void*)
+  0.00      0.00     0.00        2     0.00     0.00  SumOperation::lower(int&)
+  0.00      0.00     0.00        2     0.00     0.00  recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query()
+  0.00      0.00     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<int*>::new_allocator()
+  0.00      0.00     0.00        2     0.00     0.00  __gnu_cxx::new_allocator<int*>::~new_allocator()
+  0.00      0.00     0.00        2     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() const
+  0.00      0.00     0.00        2     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_get_map_allocator() const
+  0.00      0.00     0.00        2     0.00     0.00  std::allocator<int*>::allocator<int>(std::allocator<int> const&)
+  0.00      0.00     0.00        2     0.00     0.00  std::allocator<int*>::~allocator()
+  0.00      0.00     0.00        2     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator()
+  0.00      0.00     0.00        2     0.00     0.00  std::_Deque_iterator<int, int&, int*>::_M_set_node(int**)
+  0.00      0.00     0.00        2     0.00     0.00  std::_Deque_iterator<int, int&, int*>::_S_buffer_size()
+  0.00      0.00     0.00        2     0.00     0.00  std::_Deque_iterator<int, int&, int*>::_Deque_iterator()
+  0.00      0.00     0.00        1     0.00     0.00  __static_initialization_and_destruction_0(int, int)
+  0.00      0.00     0.00        1     0.00     0.00  recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::evict()
+  0.00      0.00     0.00        1     0.00     0.00  recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::Aggregate(SumOperation, int)
+  0.00      0.00     0.00        1     0.00     0.00  recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::~Aggregate()
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int*>::deallocate(int**, unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int*>::allocate(unsigned long, void const*)
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  void __gnu_cxx::new_allocator<int>::destroy<int>(int*)
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*)
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::new_allocator()
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::~new_allocator()
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int*>::_M_max_size() const
+  0.00      0.00     0.00        1     0.00     0.00  __gnu_cxx::new_allocator<int>::_M_max_size() const
+  0.00      0.00     0.00        1     0.00     0.00  std::allocator<int>::allocator()
+  0.00      0.00     0.00        1     0.00     0.00  std::allocator<int>::~allocator()
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_Deque_impl::_Deque_impl()
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_Deque_impl::~_Deque_impl()
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_create_nodes(int**, int**)
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_Deque_impl_data::_Deque_impl_data()
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_allocate_node()
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_destroy_nodes(int**, int**)
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_deallocate_map(int**, unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_M_deallocate_node(int*)
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::_Deque_base()
+  0.00      0.00     0.00        1     0.00     0.00  std::_Deque_base<int, std::allocator<int> >::~_Deque_base()
+  0.00      0.00     0.00        1     0.00     0.00  std::allocator_traits<std::allocator<int*> >::deallocate(std::allocator<int*>&, int**, unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  std::allocator_traits<std::allocator<int*> >::allocate(std::allocator<int*>&, unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  void std::allocator_traits<std::allocator<int> >::destroy<int>(std::allocator<int>&, int*)
+  0.00      0.00     0.00        1     0.00     0.00  std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long)
+  0.00      0.00     0.00        1     0.00     0.00  std::deque<int, std::allocator<int> >::_M_destroy_data(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::allocator<int> const&)
+  0.00      0.00     0.00        1     0.00     0.00  std::deque<int, std::allocator<int> >::pop_front()
+  0.00      0.00     0.00        1     0.00     0.00  std::deque<int, std::allocator<int> >::deque()
+  0.00      0.00     0.00        1     0.00     0.00  std::deque<int, std::allocator<int> >::~deque()
+  0.00      0.00     0.00        1     0.00     0.00  unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00       3/16          std::deque<int, std::allocator<int> >::begin() [21]
+                0.00    0.00       5/16          std::_Deque_iterator<int, int&, int*>::operator++(int) [16]
+                0.00    0.00       8/16          std::deque<int, std::allocator<int> >::end() [9]
+[8]      0.0    0.00    0.00      16         std::_Deque_iterator<int, int&, int*>::_Deque_iterator(std::_Deque_iterator<int, int&, int*> const&) [8]
+-----------------------------------------------
+                0.00    0.00       1/8           std::deque<int, std::allocator<int> >::~deque() [71]
+                0.00    0.00       7/8           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+[9]      0.0    0.00    0.00       8         std::deque<int, std::allocator<int> >::end() [9]
+                0.00    0.00       8/16          std::_Deque_iterator<int, int&, int*>::_Deque_iterator(std::_Deque_iterator<int, int&, int*> const&) [8]
+-----------------------------------------------
+                0.00    0.00       7/7           std::operator!=(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&) [11]
+[10]     0.0    0.00    0.00       7         std::operator==(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&) [10]
+-----------------------------------------------
+                0.00    0.00       7/7           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+[11]     0.0    0.00    0.00       7         std::operator!=(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&) [11]
+                0.00    0.00       7/7           std::operator==(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&) [10]
+-----------------------------------------------
+                0.00    0.00       1/6           std::_Deque_base<int, std::allocator<int> >::_M_deallocate_node(int*) [60]
+                0.00    0.00       1/6           std::_Deque_base<int, std::allocator<int> >::_M_allocate_node() [56]
+                0.00    0.00       2/6           std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [59]
+                0.00    0.00       2/6           std::_Deque_iterator<int, int&, int*>::_S_buffer_size() [34]
+[12]     0.0    0.00    0.00       6         std::__deque_buf_size(unsigned long) [12]
+-----------------------------------------------
+                0.00    0.00       3/6           void std::allocator_traits<std::allocator<int> >::construct<int, int const&>(std::allocator<int>&, int*, int const&) [20]
+                0.00    0.00       3/6           void __gnu_cxx::new_allocator<int>::construct<int, int const&>(int*, int const&) [19]
+[13]     0.0    0.00    0.00       6         int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [13]
+-----------------------------------------------
+                0.00    0.00       5/5           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+[14]     0.0    0.00    0.00       5         SumOperation::recalc_combine(int&, int) [14]
+-----------------------------------------------
+                0.00    0.00       5/5           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+[15]     0.0    0.00    0.00       5         std::_Deque_iterator<int, int&, int*>::operator*() const [15]
+-----------------------------------------------
+                0.00    0.00       5/5           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+[16]     0.0    0.00    0.00       5         std::_Deque_iterator<int, int&, int*>::operator++(int) [16]
+                0.00    0.00       5/16          std::_Deque_iterator<int, int&, int*>::_Deque_iterator(std::_Deque_iterator<int, int&, int*> const&) [8]
+                0.00    0.00       5/5           std::_Deque_iterator<int, int&, int*>::operator++() [17]
+-----------------------------------------------
+                0.00    0.00       5/5           std::_Deque_iterator<int, int&, int*>::operator++(int) [16]
+[17]     0.0    0.00    0.00       5         std::_Deque_iterator<int, int&, int*>::operator++() [17]
+-----------------------------------------------
+                0.00    0.00       3/3           main [6]
+[18]     0.0    0.00    0.00       3         recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::insert(int) [18]
+                0.00    0.00       3/3           std::deque<int, std::allocator<int> >::push_back(int const&) [22]
+-----------------------------------------------
+                0.00    0.00       3/3           void std::allocator_traits<std::allocator<int> >::construct<int, int const&>(std::allocator<int>&, int*, int const&) [20]
+[19]     0.0    0.00    0.00       3         void __gnu_cxx::new_allocator<int>::construct<int, int const&>(int*, int const&) [19]
+                0.00    0.00       3/6           int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [13]
+                0.00    0.00       3/3           operator new(unsigned long, void*) [23]
+-----------------------------------------------
+                0.00    0.00       3/3           std::deque<int, std::allocator<int> >::push_back(int const&) [22]
+[20]     0.0    0.00    0.00       3         void std::allocator_traits<std::allocator<int> >::construct<int, int const&>(std::allocator<int>&, int*, int const&) [20]
+                0.00    0.00       3/6           int const& std::forward<int const&>(std::remove_reference<int const&>::type&) [13]
+                0.00    0.00       3/3           void __gnu_cxx::new_allocator<int>::construct<int, int const&>(int*, int const&) [19]
+-----------------------------------------------
+                0.00    0.00       1/3           std::deque<int, std::allocator<int> >::~deque() [71]
+                0.00    0.00       2/3           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+[21]     0.0    0.00    0.00       3         std::deque<int, std::allocator<int> >::begin() [21]
+                0.00    0.00       3/16          std::_Deque_iterator<int, int&, int*>::_Deque_iterator(std::_Deque_iterator<int, int&, int*> const&) [8]
+-----------------------------------------------
+                0.00    0.00       3/3           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::insert(int) [18]
+[22]     0.0    0.00    0.00       3         std::deque<int, std::allocator<int> >::push_back(int const&) [22]
+                0.00    0.00       3/3           void std::allocator_traits<std::allocator<int> >::construct<int, int const&>(std::allocator<int>&, int*, int const&) [20]
+-----------------------------------------------
+                0.00    0.00       3/3           void __gnu_cxx::new_allocator<int>::construct<int, int const&>(int*, int const&) [19]
+[23]     0.0    0.00    0.00       3         operator new(unsigned long, void*) [23]
+-----------------------------------------------
+                0.00    0.00       2/2           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+[24]     0.0    0.00    0.00       2         SumOperation::lower(int&) [24]
+-----------------------------------------------
+                0.00    0.00       2/2           main [6]
+[25]     0.0    0.00    0.00       2         recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [25]
+                0.00    0.00       7/8           std::deque<int, std::allocator<int> >::end() [9]
+                0.00    0.00       7/7           std::operator!=(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&) [11]
+                0.00    0.00       5/5           std::_Deque_iterator<int, int&, int*>::operator*() const [15]
+                0.00    0.00       5/5           SumOperation::recalc_combine(int&, int) [14]
+                0.00    0.00       5/5           std::_Deque_iterator<int, int&, int*>::operator++(int) [16]
+                0.00    0.00       2/3           std::deque<int, std::allocator<int> >::begin() [21]
+                0.00    0.00       2/2           SumOperation::lower(int&) [24]
+-----------------------------------------------
+                0.00    0.00       2/2           std::allocator<int*>::allocator<int>(std::allocator<int> const&) [30]
+[26]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<int*>::new_allocator() [26]
+-----------------------------------------------
+                0.00    0.00       2/2           std::allocator<int*>::~allocator() [31]
+[27]     0.0    0.00    0.00       2         __gnu_cxx::new_allocator<int*>::~new_allocator() [27]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Deque_base<int, std::allocator<int> >::_M_get_map_allocator() const [29]
+[28]     0.0    0.00    0.00       2         std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() const [28]
+-----------------------------------------------
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_deallocate_map(int**, unsigned long) [58]
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long) [53]
+[29]     0.0    0.00    0.00       2         std::_Deque_base<int, std::allocator<int> >::_M_get_map_allocator() const [29]
+                0.00    0.00       2/2           std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() const [28]
+                0.00    0.00       2/2           std::allocator<int*>::allocator<int>(std::allocator<int> const&) [30]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Deque_base<int, std::allocator<int> >::_M_get_map_allocator() const [29]
+[30]     0.0    0.00    0.00       2         std::allocator<int*>::allocator<int>(std::allocator<int> const&) [30]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<int*>::new_allocator() [26]
+-----------------------------------------------
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_deallocate_map(int**, unsigned long) [58]
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long) [53]
+[31]     0.0    0.00    0.00       2         std::allocator<int*>::~allocator() [31]
+                0.00    0.00       2/2           __gnu_cxx::new_allocator<int*>::~new_allocator() [27]
+-----------------------------------------------
+                0.00    0.00       1/2           std::deque<int, std::allocator<int> >::~deque() [71]
+                0.00    0.00       1/2           std::deque<int, std::allocator<int> >::pop_front() [69]
+[32]     0.0    0.00    0.00       2         std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() [32]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [59]
+[33]     0.0    0.00    0.00       2         std::_Deque_iterator<int, int&, int*>::_M_set_node(int**) [33]
+                0.00    0.00       2/2           std::_Deque_iterator<int, int&, int*>::_S_buffer_size() [34]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Deque_iterator<int, int&, int*>::_M_set_node(int**) [33]
+[34]     0.0    0.00    0.00       2         std::_Deque_iterator<int, int&, int*>::_S_buffer_size() [34]
+                0.00    0.00       2/6           std::__deque_buf_size(unsigned long) [12]
+-----------------------------------------------
+                0.00    0.00       2/2           std::_Deque_base<int, std::allocator<int> >::_Deque_impl_data::_Deque_impl_data() [55]
+[35]     0.0    0.00    0.00       2         std::_Deque_iterator<int, int&, int*>::_Deque_iterator() [35]
+-----------------------------------------------
+                0.00    0.00       1/1           _GLOBAL__sub_I_main [73]
+[36]     0.0    0.00    0.00       1         __static_initialization_and_destruction_0(int, int) [36]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[37]     0.0    0.00    0.00       1         recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::evict() [37]
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::pop_front() [69]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[38]     0.0    0.00    0.00       1         recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::Aggregate(SumOperation, int) [38]
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::deque() [70]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[39]     0.0    0.00    0.00       1         recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::~Aggregate() [39]
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::~deque() [71]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int*> >::deallocate(std::allocator<int*>&, int**, unsigned long) [63]
+[40]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int*>::deallocate(int**, unsigned long) [40]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int*> >::allocate(std::allocator<int*>&, unsigned long) [64]
+[41]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int*>::allocate(unsigned long, void const*) [41]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int*>::_M_max_size() const [47]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long) [65]
+[42]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) [42]
+-----------------------------------------------
+                0.00    0.00       1/1           void std::allocator_traits<std::allocator<int> >::destroy<int>(std::allocator<int>&, int*) [66]
+[43]     0.0    0.00    0.00       1         void __gnu_cxx::new_allocator<int>::destroy<int>(int*) [43]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) [67]
+[44]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [44]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::_M_max_size() const [48]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator<int>::allocator() [49]
+[45]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::new_allocator() [45]
+-----------------------------------------------
+                0.00    0.00       1/1           std::allocator<int>::~allocator() [50]
+[46]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::~new_allocator() [46]
+-----------------------------------------------
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int*>::allocate(unsigned long, void const*) [41]
+[47]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int*>::_M_max_size() const [47]
+-----------------------------------------------
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [44]
+[48]     0.0    0.00    0.00       1         __gnu_cxx::new_allocator<int>::_M_max_size() const [48]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_impl::_Deque_impl() [51]
+[49]     0.0    0.00    0.00       1         std::allocator<int>::allocator() [49]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::new_allocator() [45]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_impl::~_Deque_impl() [52]
+[50]     0.0    0.00    0.00       1         std::allocator<int>::~allocator() [50]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::~new_allocator() [46]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_base() [61]
+[51]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_Deque_impl::_Deque_impl() [51]
+                0.00    0.00       1/1           std::allocator<int>::allocator() [49]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_impl_data::_Deque_impl_data() [55]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::~_Deque_base() [62]
+[52]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_Deque_impl::~_Deque_impl() [52]
+                0.00    0.00       1/1           std::allocator<int>::~allocator() [50]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [59]
+[53]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long) [53]
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_get_map_allocator() const [29]
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int*> >::allocate(std::allocator<int*>&, unsigned long) [64]
+                0.00    0.00       1/2           std::allocator<int*>::~allocator() [31]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [59]
+[54]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_M_create_nodes(int**, int**) [54]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_allocate_node() [56]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_impl::_Deque_impl() [51]
+[55]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_Deque_impl_data::_Deque_impl_data() [55]
+                0.00    0.00       2/2           std::_Deque_iterator<int, int&, int*>::_Deque_iterator() [35]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_create_nodes(int**, int**) [54]
+[56]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_M_allocate_node() [56]
+                0.00    0.00       1/6           std::__deque_buf_size(unsigned long) [12]
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) [67]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::~_Deque_base() [62]
+[57]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_M_destroy_nodes(int**, int**) [57]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_deallocate_node(int*) [60]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::~_Deque_base() [62]
+[58]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_M_deallocate_map(int**, unsigned long) [58]
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_get_map_allocator() const [29]
+                0.00    0.00       1/2           std::allocator<int*>::~allocator() [31]
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int*> >::deallocate(std::allocator<int*>&, int**, unsigned long) [63]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_base() [61]
+[59]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [59]
+                0.00    0.00       2/6           std::__deque_buf_size(unsigned long) [12]
+                0.00    0.00       2/2           std::_Deque_iterator<int, int&, int*>::_M_set_node(int**) [33]
+                0.00    0.00       1/1           unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [72]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long) [53]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_create_nodes(int**, int**) [54]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_destroy_nodes(int**, int**) [57]
+[60]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_M_deallocate_node(int*) [60]
+                0.00    0.00       1/6           std::__deque_buf_size(unsigned long) [12]
+                0.00    0.00       1/1           std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long) [65]
+-----------------------------------------------
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::deque() [70]
+[61]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::_Deque_base() [61]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_impl::_Deque_impl() [51]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [59]
+-----------------------------------------------
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::~deque() [71]
+[62]     0.0    0.00    0.00       1         std::_Deque_base<int, std::allocator<int> >::~_Deque_base() [62]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_destroy_nodes(int**, int**) [57]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_deallocate_map(int**, unsigned long) [58]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_impl::~_Deque_impl() [52]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_deallocate_map(int**, unsigned long) [58]
+[63]     0.0    0.00    0.00       1         std::allocator_traits<std::allocator<int*> >::deallocate(std::allocator<int*>&, int**, unsigned long) [63]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int*>::deallocate(int**, unsigned long) [40]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long) [53]
+[64]     0.0    0.00    0.00       1         std::allocator_traits<std::allocator<int*> >::allocate(std::allocator<int*>&, unsigned long) [64]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int*>::allocate(unsigned long, void const*) [41]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_deallocate_node(int*) [60]
+[65]     0.0    0.00    0.00       1         std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long) [65]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) [42]
+-----------------------------------------------
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::pop_front() [69]
+[66]     0.0    0.00    0.00       1         void std::allocator_traits<std::allocator<int> >::destroy<int>(std::allocator<int>&, int*) [66]
+                0.00    0.00       1/1           void __gnu_cxx::new_allocator<int>::destroy<int>(int*) [43]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_allocate_node() [56]
+[67]     0.0    0.00    0.00       1         std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long) [67]
+                0.00    0.00       1/1           __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [44]
+-----------------------------------------------
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::~deque() [71]
+[68]     0.0    0.00    0.00       1         std::deque<int, std::allocator<int> >::_M_destroy_data(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::allocator<int> const&) [68]
+-----------------------------------------------
+                0.00    0.00       1/1           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::evict() [37]
+[69]     0.0    0.00    0.00       1         std::deque<int, std::allocator<int> >::pop_front() [69]
+                0.00    0.00       1/1           void std::allocator_traits<std::allocator<int> >::destroy<int>(std::allocator<int>&, int*) [66]
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() [32]
+-----------------------------------------------
+                0.00    0.00       1/1           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::Aggregate(SumOperation, int) [38]
+[70]     0.0    0.00    0.00       1         std::deque<int, std::allocator<int> >::deque() [70]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_Deque_base() [61]
+-----------------------------------------------
+                0.00    0.00       1/1           recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::~Aggregate() [39]
+[71]     0.0    0.00    0.00       1         std::deque<int, std::allocator<int> >::~deque() [71]
+                0.00    0.00       1/2           std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() [32]
+                0.00    0.00       1/8           std::deque<int, std::allocator<int> >::end() [9]
+                0.00    0.00       1/3           std::deque<int, std::allocator<int> >::begin() [21]
+                0.00    0.00       1/1           std::deque<int, std::allocator<int> >::_M_destroy_data(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::allocator<int> const&) [68]
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::~_Deque_base() [62]
+-----------------------------------------------
+                0.00    0.00       1/1           std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [59]
+[72]     0.0    0.00    0.00       1         unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&) [72]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [36] __static_initialization_and_destruction_0(int, int) [15] std::_Deque_iterator<int, int&, int*>::operator*() const [16] std::_Deque_iterator<int, int&, int*>::operator++(int)
+  [14] SumOperation::recalc_combine(int&, int) [30] std::allocator<int*>::allocator<int>(std::allocator<int> const&) [17] std::_Deque_iterator<int, int&, int*>::operator++()
+  [24] SumOperation::lower(int&) [31] std::allocator<int*>::~allocator() [63] std::allocator_traits<std::allocator<int*> >::deallocate(std::allocator<int*>&, int**, unsigned long)
+  [37] recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::evict() [49] std::allocator<int>::allocator() [64] std::allocator_traits<std::allocator<int*> >::allocate(std::allocator<int*>&, unsigned long)
+  [25] recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::query() [50] std::allocator<int>::~allocator() [65] std::allocator_traits<std::allocator<int> >::deallocate(std::allocator<int>&, int*, unsigned long)
+  [18] recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::insert(int) [51] std::_Deque_base<int, std::allocator<int> >::_Deque_impl::_Deque_impl() [66] void std::allocator_traits<std::allocator<int> >::destroy<int>(std::allocator<int>&, int*)
+  [38] recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::Aggregate(SumOperation, int) [52] std::_Deque_base<int, std::allocator<int> >::_Deque_impl::~_Deque_impl() [67] std::allocator_traits<std::allocator<int> >::allocate(std::allocator<int>&, unsigned long)
+  [39] recalc::Aggregate<SumOperation, std::deque<int, std::allocator<int> > >::~Aggregate() [53] std::_Deque_base<int, std::allocator<int> >::_M_allocate_map(unsigned long) [20] void std::allocator_traits<std::allocator<int> >::construct<int, int const&>(std::allocator<int>&, int*, int const&)
+  [40] __gnu_cxx::new_allocator<int*>::deallocate(int**, unsigned long) [54] std::_Deque_base<int, std::allocator<int> >::_M_create_nodes(int**, int**) [68] std::deque<int, std::allocator<int> >::_M_destroy_data(std::_Deque_iterator<int, int&, int*>, std::_Deque_iterator<int, int&, int*>, std::allocator<int> const&)
+  [41] __gnu_cxx::new_allocator<int*>::allocate(unsigned long, void const*) [55] std::_Deque_base<int, std::allocator<int> >::_Deque_impl_data::_Deque_impl_data() [9] std::deque<int, std::allocator<int> >::end()
+  [26] __gnu_cxx::new_allocator<int*>::new_allocator() [56] std::_Deque_base<int, std::allocator<int> >::_M_allocate_node() [21] std::deque<int, std::allocator<int> >::begin()
+  [27] __gnu_cxx::new_allocator<int*>::~new_allocator() [57] std::_Deque_base<int, std::allocator<int> >::_M_destroy_nodes(int**, int**) [69] std::deque<int, std::allocator<int> >::pop_front()
+  [42] __gnu_cxx::new_allocator<int>::deallocate(int*, unsigned long) [58] std::_Deque_base<int, std::allocator<int> >::_M_deallocate_map(int**, unsigned long) [22] std::deque<int, std::allocator<int> >::push_back(int const&)
+  [43] void __gnu_cxx::new_allocator<int>::destroy<int>(int*) [59] std::_Deque_base<int, std::allocator<int> >::_M_initialize_map(unsigned long) [70] std::deque<int, std::allocator<int> >::deque()
+  [44] __gnu_cxx::new_allocator<int>::allocate(unsigned long, void const*) [60] std::_Deque_base<int, std::allocator<int> >::_M_deallocate_node(int*) [71] std::deque<int, std::allocator<int> >::~deque()
+  [19] void __gnu_cxx::new_allocator<int>::construct<int, int const&>(int*, int const&) [32] std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() [12] std::__deque_buf_size(unsigned long)
+  [45] __gnu_cxx::new_allocator<int>::new_allocator() [61] std::_Deque_base<int, std::allocator<int> >::_Deque_base() [72] unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
+  [46] __gnu_cxx::new_allocator<int>::~new_allocator() [62] std::_Deque_base<int, std::allocator<int> >::~_Deque_base() [13] int const& std::forward<int const&>(std::remove_reference<int const&>::type&)
+  [47] __gnu_cxx::new_allocator<int*>::_M_max_size() const [33] std::_Deque_iterator<int, int&, int*>::_M_set_node(int**) [10] std::operator==(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&)
+  [48] __gnu_cxx::new_allocator<int>::_M_max_size() const [34] std::_Deque_iterator<int, int&, int*>::_S_buffer_size() [11] std::operator!=(std::_Deque_iterator<int, int&, int*> const&, std::_Deque_iterator<int, int&, int*> const&)
+  [28] std::_Deque_base<int, std::allocator<int> >::_M_get_Tp_allocator() const [8] std::_Deque_iterator<int, int&, int*>::_Deque_iterator(std::_Deque_iterator<int, int&, int*> const&) [23] operator new(unsigned long, void*)
+  [29] std::_Deque_base<int, std::allocator<int> >::_M_get_map_allocator() const [35] std::_Deque_iterator<int, int&, int*>::_Deque_iterator()
