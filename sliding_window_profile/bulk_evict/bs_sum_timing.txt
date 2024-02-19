@@ -1,0 +1,4 @@
+bfinger4, sum, 4096, 0, 2097152, 250000
+window size 4096, iterations 250000, ooo 0, bulk size 2097152
+core runtime: 317.052
+12541414
