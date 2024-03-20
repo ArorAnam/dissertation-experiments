@@ -1,0 +1,31 @@
+2024-03-20T01:29:16+00:00
+Running ./heap_google_benchmark
+Run on (20 X 4600 MHz CPU s)
+CPU Caches:
+  L1 Data 48 KiB (x10)
+  L1 Instruction 32 KiB (x10)
+  L2 Unified 1280 KiB (x10)
+  L3 Unified 24576 KiB (x1)
+Load Average: 20.04, 20.06, 20.08
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+"BM_push_heap/8",873458,801.036,803.562,ns,,,,,
+"BM_push_heap/64",205071,3413.02,3416.05,ns,,,,,
+"BM_push_heap/512",29661,23592,23590,ns,,,,,
+"BM_push_heap/4096",3859,181643,181529,ns,,,,,
+"BM_push_heap/8192",1942,360815,360556,ns,,,,,
+"BM_pop_heap/8",831578,838.381,842.251,ns,,,,,
+"BM_pop_heap/64",200686,3484.3,3487.98,ns,,,,,
+"BM_pop_heap/512",29528,23716.4,23712.9,ns,,,,,
+"BM_pop_heap/4096",3849,181807,180980,ns,,,,,
+"BM_pop_heap/8192",1942,361375,360552,ns,,,,,
+"BM_make_heap/8",2380243,295.035,294.326,ns,,,,,
+"BM_make_heap/64",251383,2787.19,2780.91,ns,,,,,
+"BM_make_heap/512",30779,22799.7,22745.2,ns,,,,,
+"BM_make_heap/4096",3867,181323,180919,ns,,,,,
+"BM_make_heap/8192",1946,360235,359378,ns,,,,,
+"BM_sort_heap/8",1757447,399.256,398.377,ns,,,,,
+"BM_sort_heap/64",114365,6135.91,6120.87,ns,,,,,
+"BM_sort_heap/512",10697,65593.3,65444.4,ns,,,,,
+"BM_sort_heap/4096",1079,649898,648398,ns,,,,,
+"BM_sort_heap/8192",507,1.39185e+06,1.38855e+06,ns,,,,,
