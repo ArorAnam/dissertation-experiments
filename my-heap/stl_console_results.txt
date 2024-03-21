@@ -1,0 +1,23 @@
+----------------------------------------------------------------
+Benchmark                      Time             CPU   Iterations
+----------------------------------------------------------------
+BM_stl_push_heap/8           523 ns          525 ns      1332225
+BM_stl_push_heap/64         2479 ns         2480 ns       282293
+BM_stl_push_heap/512       18682 ns        18679 ns        37496
+BM_stl_push_heap/4096     145567 ns       145521 ns         4807
+BM_stl_push_heap/8192     289622 ns       289449 ns         2422
+BM_stl_pop_heap/8            548 ns          550 ns      1269327
+BM_stl_pop_heap/64          2535 ns         2536 ns       275936
+BM_stl_pop_heap/512        18767 ns        18766 ns        37294
+BM_stl_pop_heap/4096      145699 ns       145655 ns         4807
+BM_stl_pop_heap/8192      289196 ns       289075 ns         2420
+BM_stl_make_heap/8           203 ns          203 ns      3444658
+BM_stl_make_heap/64         2136 ns         2135 ns       328013
+BM_stl_make_heap/512       18076 ns        18067 ns        38717
+BM_stl_make_heap/4096     144378 ns       144303 ns         4853
+BM_stl_make_heap/8192     286982 ns       286828 ns         2441
+BM_stl_sort_heap/8           271 ns          270 ns      2578370
+BM_stl_sort_heap/64         4599 ns         4597 ns       152246
+BM_stl_sort_heap/512       51005 ns        50978 ns        13728
+BM_stl_sort_heap/4096     507430 ns       507184 ns         1379
+BM_stl_sort_heap/8192    1075459 ns      1074928 ns          651
