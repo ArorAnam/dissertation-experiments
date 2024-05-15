@@ -57,6 +57,7 @@ inline void pushHeap(int arr[], int& n, int key) {
 }
 
 inline void popHeap(int arr[], int& n) {
+    std::cout << "Popping element from heap of size " << n << std::endl;
     if (n <= 0)
         return;
     if (n == 1) {

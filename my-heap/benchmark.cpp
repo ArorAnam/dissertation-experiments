@@ -5,9 +5,9 @@
 #include "heap.h"
 
 // Function to perform the benchmark
-void benchmarkHeapOperations(size_t initialHeapSize, int popRatePercent, std::chrono::seconds duration) {
+void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, std::chrono::seconds duration) {
     int* heap = new int[initialHeapSize + duration.count() * 100]; // Oversize the heap for simplicity
-    size_t heapSize = initialHeapSize;
+    int heapSize = initialHeapSize;
 
     // Initialize the heap with some values
     for (size_t i = 0; i < initialHeapSize; ++i) {
@@ -44,7 +44,7 @@ void benchmarkHeapOperations(size_t initialHeapSize, int popRatePercent, std::ch
 int main() {
     std::srand(std::time(nullptr)); // Seed the random number generator
 
-    size_t initialHeapSize = 10000; // Initial number of elements in the heap
+    int initialHeapSize = 10000; // Initial number of elements in the heap
     int popRatePercent = 1; // Percentage of pop operations
     std::chrono::seconds duration(30); // Duration of the benchmark
 

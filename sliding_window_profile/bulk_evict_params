@@ -1,0 +1,6 @@
+w		4*MB
+d		0
+b		256
+aggregate	bfinger4
+f		sum
+iterations 	4*MB + 50*MILLION
