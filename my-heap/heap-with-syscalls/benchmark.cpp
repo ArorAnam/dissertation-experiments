@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstdlib>
+#include <ctime>
 #include <chrono>
-
+#include "syscalls.c"
 #include "heap.h"
 
 // Function to perform the benchmark
@@ -36,7 +37,7 @@ void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, std::chron
     std::chrono::duration<double> elapsed = endTime - startTime;
     double opsPerSecond = operations / elapsed.count();
 
-    std::cout << "Performed " << operations << " operations in " << elapsed.count() << " seconds (" << opsPerSecond << " OP/s)\n";
+    printf("Performed %zu operations in %f seconds (%f OP/s)\n", operations, elapsed.count(), opsPerSecond);
 
     delete[] heap; // Clean up
 }
@@ -48,7 +49,6 @@ int main() {
     int popRatePercent = 1; // Percentage of pop operations
     std::chrono::seconds duration(30); // Duration of the benchmark
 
-    // have a for loop for different sizes and pop rates
     benchmarkHeapOperations(initialHeapSize, popRatePercent, duration);
 
     return 0;
