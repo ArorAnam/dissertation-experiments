@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <chrono>
-#include "syscalls.c"
+#include "syscalls2.c"
 #include "heap.h"
 
 // Function to perform the benchmark
