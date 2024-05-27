@@ -42,6 +42,8 @@ void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, std::chron
 }
 
 int main() {
+    std::cout << "Entered into main" << std::endl;
+
     std::srand(std::time(nullptr)); // Seed the random number generator
 
     int initialHeapSize = 10000; // Initial number of elements in the heap
