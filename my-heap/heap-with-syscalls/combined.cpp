@@ -1,5 +1,7 @@
-// syscalls.c - assumed to be the same as provided earlier
-#include "syscalls.c"
+// syscalls.c - assume to be the same as provided earlier with necessary modifications for extern "C"
+extern "C" {
+    #include "syscalls.c"
+}
 
 // heap.h contents
 #include <algorithm>
@@ -72,7 +74,7 @@ void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, int durati
     size_t operations = 0;
     uint64_t startTime = time();
 
-    while (time() - startTime < duration_seconds * 1000000) { // convert seconds to microseconds
+    while (time() - startTime < static_cast<uint64_t>(duration_seconds) * 1000000) { // convert seconds to microseconds
         if (std::rand() % 100 < popRatePercent && heapSize > 0) {
             popHeap(heap, heapSize);
         } else {
@@ -97,9 +99,9 @@ void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, int durati
 int main() {
     printstr("Entered into main\n");
 
-    std::srand(std::time(nullptr));
+    std::srand(static_cast<unsigned>(std::time(nullptr))); // Use the standard library's time function
 
-    int initialHeapSize = 1000;
+    int initialHeapSize = 10000;
     int popRatePercent = 1;
     int duration_seconds = 30;
 
