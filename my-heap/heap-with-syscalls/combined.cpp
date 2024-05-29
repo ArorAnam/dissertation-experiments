@@ -101,9 +101,9 @@ int main() {
 
     std::srand(static_cast<unsigned>(std::time(nullptr))); // Use the standard library's time function
 
-    int initialHeapSize = 10000;
+    int initialHeapSize = 100; // Reduced initial number of elements in the heap
     int popRatePercent = 1;
-    int duration_seconds = 30;
+    int duration_seconds = 1; // Reduced duration for the benchmark
 
     benchmarkHeapOperations(initialHeapSize, popRatePercent, duration_seconds);
 
