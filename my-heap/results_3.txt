@@ -1,0 +1,45 @@
+Heap Size: 1000, Pop Rate: 1%
+Operations: 432064661
+Time (ms): 30000
+Operations per second: 1.44022e+07
+----------------------------------------
+Heap Size: 1000, Pop Rate: 5%
+Operations: 386345716
+Time (ms): 30000
+Operations per second: 1.28782e+07
+----------------------------------------
+Heap Size: 1000, Pop Rate: 10%
+Operations: 356210264
+Time (ms): 30000
+Operations per second: 1.18737e+07
+----------------------------------------
+Heap Size: 10000, Pop Rate: 1%
+Operations: 399454195
+Time (ms): 30000
+Operations per second: 1.33151e+07
+----------------------------------------
+Heap Size: 10000, Pop Rate: 5%
+Operations: 380912660
+Time (ms): 30000
+Operations per second: 1.26971e+07
+----------------------------------------
+Heap Size: 10000, Pop Rate: 10%
+Operations: 354726595
+Time (ms): 30000
+Operations per second: 1.18242e+07
+----------------------------------------
+Heap Size: 100000, Pop Rate: 1%
+Operations: 403915562
+Time (ms): 30000
+Operations per second: 1.34639e+07
+----------------------------------------
+Heap Size: 100000, Pop Rate: 5%
+Operations: 383392452
+Time (ms): 30000
+Operations per second: 1.27797e+07
+----------------------------------------
+Heap Size: 100000, Pop Rate: 10%
+Operations: 357609225
+Time (ms): 30000
+Operations per second: 1.19203e+07
+----------------------------------------
