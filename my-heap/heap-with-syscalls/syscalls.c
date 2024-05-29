@@ -486,7 +486,7 @@ long atol(const char* str)
 }
 
 
-uint64_t time()
+uint64_t riscv_time()
 {
 	uint32_t cycles_low;
 	asm volatile ("rdcycle %0" : "=r"(cycles_low));

@@ -72,9 +72,9 @@ void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, int durati
     make_heap(heap, heapSize);
 
     size_t operations = 0;
-    uint64_t startTime = time();
+    uint64_t startTime = riscv_time();
 
-    while (time() - startTime < static_cast<uint64_t>(duration_seconds) * 1000000) { // convert seconds to microseconds
+    while (riscv_time() - startTime < static_cast<uint64_t>(duration_seconds) * 1000000) { // convert seconds to microseconds
         if (std::rand() % 100 < popRatePercent && heapSize > 0) {
             popHeap(heap, heapSize);
         } else {
@@ -84,7 +84,7 @@ void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, int durati
         operations++;
     }
 
-    uint64_t endTime = time();
+    uint64_t endTime = riscv_time();
     uint64_t elapsed = endTime - startTime;
     double elapsed_seconds = elapsed / 1000000.0;
     double opsPerSecond = operations / elapsed_seconds;
