@@ -9,6 +9,7 @@ extern "C" {
 #include <cstdlib>
 #include <chrono>
 
+// Custom heap implementation
 inline void heapify(int arr[], int n, int i) {
     int largest = i;
     int l = 2 * i + 1;
@@ -90,8 +91,11 @@ void benchmarkHeapOperations(int initialHeapSize, int popRatePercent, int durati
     double opsPerSecond = operations / elapsed_seconds;
 
     char buffer[256];
+    sprintf(buffer, "Heap Size: %d, Pop Rate: %d%%\n", initialHeapSize, popRatePercent);
+    printstr(buffer);
     sprintf(buffer, "Performed %zu operations in %.2f seconds (%.2f OP/s)\n", operations, elapsed_seconds, opsPerSecond);
     printstr(buffer);
+    printstr("----------------------------------------\n");
 
     delete[] heap;
 }
@@ -101,11 +105,15 @@ int main() {
 
     std::srand(static_cast<unsigned>(std::time(nullptr))); // Use the standard library's time function
 
-    int initialHeapSize = 100; // Reduced initial number of elements in the heap
-    int popRatePercent = 1;
+    std::vector<size_t> heap_sizes = {100, 1000}; // Reduced heap sizes for quicker simulation
+    std::vector<int> pop_rates = {1, 5, 10}; // Pop rates in percentage
     int duration_seconds = 1; // Reduced duration for the benchmark
 
-    benchmarkHeapOperations(initialHeapSize, popRatePercent, duration_seconds);
+    for (size_t heap_size : heap_sizes) {
+        for (int pop_rate : pop_rates) {
+            benchmarkHeapOperations(heap_size, pop_rate, duration_seconds);
+        }
+    }
 
     return 0;
 }
