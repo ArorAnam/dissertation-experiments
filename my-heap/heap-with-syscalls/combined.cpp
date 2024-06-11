@@ -3,9 +3,9 @@ extern "C" {
     #include "syscalls.c"
 }
 
-// heap.h contents
-#include <algorithm>
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include <cstdlib>
 #include <chrono>
 
