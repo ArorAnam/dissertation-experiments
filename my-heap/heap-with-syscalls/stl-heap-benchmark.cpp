@@ -63,7 +63,7 @@ int main() {
 
     std::srand(static_cast<unsigned>(std::time(nullptr))); // Use the standard library's time function
 
-    std::vector<size_t> heap_sizes = {100, 500, 1000, 5000, 10000}; // Expanded heap sizes for a broader range
+    std::vector<size_t> heap_sizes = {10, 50, 100, 500, 1000} // 5000, 10000}; // Expanded heap sizes for a broader range
     std::vector<int> pop_rates = {1, 5, 10, 20, 50}; // Expanded pop rates in percentage
     int duration_seconds = 1; // Reduced duration for the benchmark
 
