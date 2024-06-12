@@ -1,0 +1,12 @@
+opcodes/riscc-opc.c
+
+{"c0_push_heap", 0, INSN_CLASS_I, "rs1, rs2", MATCH_C0_PUSH_HEAP, MASK_C0_PUSH_HEAP, match_opcode, 0 },
+{"c0_pop_heap", 0, INSN_CLASS_I, "rs1, rs2", MATCH_C0_POP_HEAP, MASK_C0_POP_HEAP, match_opcode, 0 },
+
+
+include/opcode/riscv.h
+
+#define MATCH_C0_PUSH_HEAP 0x0B000000
+#define MASK_C0_PUSH_HEAP  0xFF000000
+#define MATCH_C0_POP_HEAP  0x0B000001
+#define MASK_C0_POP_HEAP   0xFF000000
