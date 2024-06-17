@@ -1,0 +1,100 @@
+Heap Size: 5916, Pop Rate: 1%
+Performed 6026 operations in 1.00 seconds (6023.97 OP/s)
+Push Operations: 5966, Pop Operations: 60
+Average Time per Operation: 0.1660 ms
+----------------------------------------
+Heap Size: 5080, Pop Rate: 5%
+Performed 5688 operations in 1.00 seconds (5687.20 OP/s)
+Push Operations: 5379, Pop Operations: 309
+Average Time per Operation: 0.1758 ms
+----------------------------------------
+Heap Size: 4306, Pop Rate: 10%
+Performed 5380 operations in 1.00 seconds (5378.97 OP/s)
+Push Operations: 4838, Pop Operations: 542
+Average Time per Operation: 0.1859 ms
+----------------------------------------
+Heap Size: 3006, Pop Rate: 20%
+Performed 4896 operations in 1.00 seconds (4894.38 OP/s)
+Push Operations: 3946, Pop Operations: 950
+Average Time per Operation: 0.2043 ms
+----------------------------------------
+Heap Size: 65, Pop Rate: 50%
+Performed 4921 operations in 1.00 seconds (4919.67 OP/s)
+Push Operations: 2488, Pop Operations: 2433
+Average Time per Operation: 0.2033 ms
+----------------------------------------
+Heap Size: 5950, Pop Rate: 1%
+Performed 6034 operations in 1.00 seconds (6032.63 OP/s)
+Push Operations: 5982, Pop Operations: 52
+Average Time per Operation: 0.1658 ms
+----------------------------------------
+Heap Size: 5205, Pop Rate: 5%
+Performed 5717 operations in 1.00 seconds (5716.05 OP/s)
+Push Operations: 5451, Pop Operations: 266
+Average Time per Operation: 0.1749 ms
+----------------------------------------
+Heap Size: 4326, Pop Rate: 10%
+Performed 5362 operations in 1.00 seconds (5361.42 OP/s)
+Push Operations: 4834, Pop Operations: 528
+Average Time per Operation: 0.1865 ms
+----------------------------------------
+Heap Size: 2900, Pop Rate: 20%
+Performed 4838 operations in 1.00 seconds (4837.25 OP/s)
+Push Operations: 3859, Pop Operations: 979
+Average Time per Operation: 0.2067 ms
+----------------------------------------
+Heap Size: 35, Pop Rate: 50%
+Performed 5927 operations in 1.00 seconds (5925.92 OP/s)
+Push Operations: 2971, Pop Operations: 2956
+Average Time per Operation: 0.1688 ms
+----------------------------------------
+Heap Size: 5933, Pop Rate: 1%
+Performed 6005 operations in 1.00 seconds (6003.58 OP/s)
+Push Operations: 5944, Pop Operations: 61
+Average Time per Operation: 0.1666 ms
+----------------------------------------
+Heap Size: 5286, Pop Rate: 5%
+Performed 5736 operations in 1.00 seconds (5735.23 OP/s)
+Push Operations: 5486, Pop Operations: 250
+Average Time per Operation: 0.1744 ms
+----------------------------------------
+Heap Size: 4459, Pop Rate: 10%
+Performed 5409 operations in 1.00 seconds (5407.78 OP/s)
+Push Operations: 4909, Pop Operations: 500
+Average Time per Operation: 0.1849 ms
+----------------------------------------
+Heap Size: 3089, Pop Rate: 20%
+Performed 4911 operations in 1.00 seconds (4909.65 OP/s)
+Push Operations: 3975, Pop Operations: 936
+Average Time per Operation: 0.2037 ms
+----------------------------------------
+Heap Size: 188, Pop Rate: 50%
+Performed 4558 operations in 1.00 seconds (4557.26 OP/s)
+Push Operations: 2348, Pop Operations: 2210
+Average Time per Operation: 0.2194 ms
+----------------------------------------
+Heap Size: 6017, Pop Rate: 1%
+Performed 6021 operations in 1.00 seconds (6020.23 OP/s)
+Push Operations: 5969, Pop Operations: 52
+Average Time per Operation: 0.1661 ms
+----------------------------------------
+Heap Size: 5246, Pop Rate: 5%
+Performed 5704 operations in 1.00 seconds (5702.98 OP/s)
+Push Operations: 5425, Pop Operations: 279
+Average Time per Operation: 0.1753 ms
+----------------------------------------
+Heap Size: 4368, Pop Rate: 10%
+Performed 5360 operations in 1.00 seconds (5359.00 OP/s)
+Push Operations: 4814, Pop Operations: 546
+Average Time per Operation: 0.1866 ms
+----------------------------------------
+Heap Size: 3023, Pop Rate: 20%
+Performed 4861 operations in 1.00 seconds (4859.27 OP/s)
+Push Operations: 3892, Pop Operations: 969
+Average Time per Operation: 0.2058 ms
+----------------------------------------
+Heap Size: 136, Pop Rate: 50%
+Performed 4488 operations in 1.00 seconds (4487.19 OP/s)
+Push Operations: 2262, Pop Operations: 2226
+Average Time per Operation: 0.2229 ms
+----------------------------------------

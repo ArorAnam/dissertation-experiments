@@ -1,0 +1,92 @@
+Using language generation: IEEE1800-2005,no-specify,xtypes,icarus-misc
+PARSING INPUT
+LOCATING TOP-LEVEL MODULES
+   PrefixSum1x8x32bit Top_Level
+ELABORATING DESIGN
+RUNNING FUNCTORS
+ ... Iteration detected 0 optimizations.
+ ... Look for dangling constants
+ ... done
+ ... scan for dangling signal and event nodes. (scomplete=F, ecomplete=F)
+ ... 1 iterations deleted 547 dangling signals and 0 events.
+ ... scan for dangling signal and event nodes. (scomplete=T, ecomplete=F)
+ ... 2 iterations deleted 547 dangling signals and 118 events.
+ ... done
+CALCULATING ISLANDS
+CODE GENERATION
+ ... invoking target_design
+STATISTICS
+lex_string: add_count=1377 hit_count=12690
+Icarus Verilog version 12.0 (stable) (v12_0-dirty)
+
+Copyright (c) 2000-2021 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+translate: /usr/lib/ivl/ivlpp -v -L -Wredef-chg -F"/tmp/ivrlg2701a69e3" -f"/tmp/ivrlg701a69e3" -p"/tmp/ivrli701a69e3" |/usr/lib/ivl/ivl -v -C"/tmp/ivrlh701a69e3" -C"/usr/lib/ivl/vvp.conf" -- -
+Entered into main
+Heap Size: 10, Pop Rate: 1%
+Performed 345 operations in 1.00 seconds (343.96 OP/s)
+Push Operations: 338, Pop Operations: 7
+Average Time per Operation: 2.9073 ms
+----------------------------------------
+Heap Size: 10, Pop Rate: 5%
+Performed 369 operations in 1.00 seconds (367.82 OP/s)
+Push Operations: 346, Pop Operations: 23
+Average Time per Operation: 2.7187 ms
+----------------------------------------
+Heap Size: 10, Pop Rate: 10%
+Performed 396 operations in 1.00 seconds (395.16 OP/s)
+Push Operations: 356, Pop Operations: 40
+Average Time per Operation: 2.5306 ms
+----------------------------------------
+Heap Size: 10, Pop Rate: 20%
+Performed 515 operations in 1.00 seconds (513.13 OP/s)
+Push Operations: 395, Pop Operations: 120
+Average Time per Operation: 1.9488 ms
+----------------------------------------
+Heap Size: 10, Pop Rate: 50%
+Performed 2457 operations in 1.00 seconds (2455.69 OP/s)
+Push Operations: 1237, Pop Operations: 1220
+Average Time per Operation: 0.4072 ms
+----------------------------------------
+Heap Size: 50, Pop Rate: 1%
+Performed 308 operations in 1.00 seconds (307.27 OP/s)
+Push Operations: 302, Pop Operations: 6
+Average Time per Operation: 3.2544 ms
+----------------------------------------
+Heap Size: 50, Pop Rate: 5%
+Performed 327 operations in 1.01 seconds (325.35 OP/s)
+Push Operations: 308, Pop Operations: 19
+Average Time per Operation: 3.0736 ms
+----------------------------------------
+Heap Size: 50, Pop Rate: 10%
+Performed 350 operations in 1.00 seconds (348.84 OP/s)
+Push Operations: 315, Pop Operations: 35
+Average Time per Operation: 2.8667 ms
+----------------------------------------
+Heap Size: 50, Pop Rate: 20%
+Performed 446 operations in 1.00 seconds (445.51 OP/s)
+Push Operations: 345, Pop Operations: 101
+Average Time per Operation: 2.2446 ms
+----------------------------------------
+Heap Size: 50, Pop Rate: 50%
+Performed 1556 operations in 1.00 seconds (1555.73 OP/s)
+Push Operations: 785, Pop Operations: 771
+Average Time per Operation: 0.6428 ms
+----------------------------------------
+
+Flushing remaing dirty blocks to DRAMs
+
