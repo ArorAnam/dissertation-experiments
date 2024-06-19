@@ -5,72 +5,74 @@ module heap_operations_tb;
     reg [31:0] arr [0:1023];
     reg [9:0] n;
     reg [31:0] key;
-    wire [31:0] make_heap_out_arr [0:1023];
-    wire [31:0] push_heap_out_arr [0:1023];
-    wire [31:0] pop_heap_out_arr [0:1023];
-    wire [9:0] push_heap_out_n;
-    wire [9:0] pop_heap_out_n;
-
+    reg [31:0] out_arr [0:1023];
+    reg [9:0] out_n;
     integer i;
 
-    // Tasks to perform heap operations
-    task heapify(input [31:0] arr [0:1023], input [9:0] n, input [9:0] i, output [31:0] out_arr [0:1023]);
+    // Task to heapify a subtree rooted with node i which is an index in arr[]
+    task heapify(input integer n, input integer i);
         integer largest, l, r;
         reg [31:0] temp;
         begin
-            largest = i;
-            l = 2 * i + 1;
-            r = 2 * i + 2;
+            largest = i; // Initialize largest as root
+            l = 2 * i + 1; // left = 2*i + 1
+            r = 2 * i + 2; // right = 2*i + 2
 
+            // If left child is larger than root
             if (l < n && arr[l] > arr[largest])
                 largest = l;
 
+            // If right child is larger than largest so far
             if (r < n && arr[r] > arr[largest])
                 largest = r;
 
-            out_arr = arr;
-
+            // If largest is not root
             if (largest != i) begin
-                temp = out_arr[i];
-                out_arr[i] = out_arr[largest];
-                out_arr[largest] = temp;
-                heapify(out_arr, n, largest, out_arr);
+                temp = arr[i];
+                arr[i] = arr[largest];
+                arr[largest] = temp;
+
+                // Recursively heapify the affected sub-tree
+                heapify(n, largest);
             end
         end
     endtask
 
-    task make_heap(input [31:0] arr [0:1023], input [9:0] n, output [31:0] out_arr [0:1023]);
-        integer startIdx, i;
+    // Task to build a Max-Heap from the given array
+    task make_heap(input integer n);
+        integer startIdx;
         begin
+            // Index of the last non-leaf node
             startIdx = (n / 2) - 1;
-            out_arr = arr;
 
+            // Perform reverse level order traversal
+            // from last non-leaf node and heapify each node
             for (i = startIdx; i >= 0; i = i - 1) begin
-                heapify(out_arr, n, i, out_arr);
+                heapify(n, i);
             end
         end
     endtask
 
-    task push_heap(input [31:0] arr [0:1023], input [9:0] n, input [31:0] key, output [31:0] out_arr [0:1023], output [9:0] out_n);
+    // Task to push an element to the heap
+    task push_heap(input integer key);
         begin
-            out_n = n + 1;
-            out_arr = arr;
-            out_arr[out_n - 1] = key;
-            make_heap(out_arr, out_n, out_arr);
+            n = n + 1;
+            arr[n - 1] = key;
+            make_heap(n);
         end
     endtask
 
-    task pop_heap(input [31:0] arr [0:1023], input [9:0] n, output [31:0] out_arr [0:1023], output [9:0] out_n);
+    // Task to pop the root element from the heap
+    task pop_heap();
         begin
-            if (n <= 0) begin
-                out_n = 0;
-            end else if (n == 1) begin
-                out_n = 0;
-            end else begin
-                out_n = n - 1;
-                out_arr = arr;
-                out_arr[0] = arr[out_n];
-                heapify(out_arr, out_n, 0, out_arr);
+            if (n <= 0)
+                n = 0;
+            else if (n == 1)
+                n = 0;
+            else begin
+                arr[0] = arr[n - 1];
+                n = n - 1;
+                heapify(n, 0);
             end
         end
     endtask
@@ -87,33 +89,33 @@ module heap_operations_tb;
 
         // Test make_heap
         #10;
-        make_heap(arr, n, make_heap_out_arr);
+        make_heap(n);
 
         // Print the heap after make_heap
         $display("Heap after make_heap:");
         for (i = 0; i < n; i = i + 1) begin
-            $display("%d", make_heap_out_arr[i]);
+            $display("%d", arr[i]);
         end
 
         // Test push_heap
         key = 15;
         #10;
-        push_heap(arr, n, key, push_heap_out_arr, push_heap_out_n);
-        
+        push_heap(key);
+
         // Print the heap after push_heap
         $display("Heap after push_heap:");
-        for (i = 0; i < push_heap_out_n; i = i + 1) begin
-            $display("%d", push_heap_out_arr[i]);
+        for (i = 0; i < n; i = i + 1) begin
+            $display("%d", arr[i]);
         end
 
         // Test pop_heap
         #10;
-        pop_heap(arr, push_heap_out_n, pop_heap_out_arr, pop_heap_out_n);
+        pop_heap();
 
         // Print the heap after pop_heap
         $display("Heap after pop_heap:");
-        for (i = 0; i < pop_heap_out_n; i = i + 1) begin
-            $display("%d", pop_heap_out_arr[i]);
+        for (i = 0; i < n; i = i + 1) begin
+            $display("%d", arr[i]);
         end
 
         $finish;
