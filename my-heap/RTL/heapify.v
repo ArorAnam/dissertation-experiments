@@ -2,9 +2,10 @@ module heapify (
     input [31:0] arr [0:1023],
     input [9:0] n,
     input [9:0] i,
-    output reg [31:0] out_arr [0:1023]
+    output [31:0] out_arr [0:1023]
 );
     integer largest, l, r;
+    reg [31:0] temp;
 
     always @(*) begin
         largest = i;
@@ -20,8 +21,9 @@ module heapify (
         out_arr = arr;
 
         if (largest != i) begin
-            out_arr[i] = arr[largest];
-            out_arr[largest] = arr[i];
+            temp = out_arr[i];
+            out_arr[i] = out_arr[largest];
+            out_arr[largest] = temp;
             heapify(out_arr, n, largest, out_arr);
         end
     end
