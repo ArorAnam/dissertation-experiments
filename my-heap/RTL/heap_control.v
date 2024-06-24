@@ -28,6 +28,7 @@ module heap_control (
             state <= IDLE;
             done <= 0;
             n <= 0;
+            index <= 0;
         end else begin
             case (state)
                 IDLE: begin
@@ -96,7 +97,7 @@ module heap_control (
 
     // Output array elements one by one
     always @(posedge clk) begin
-        if (done) begin
+        if (done && index < n) begin
             arr_out <= arr[index];
             index <= index + 1;
         end

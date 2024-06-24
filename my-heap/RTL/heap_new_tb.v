@@ -54,7 +54,7 @@ module heap_operations_tb;
         start = 0;
         wait(done);
         $display("Heap after make_heap:");
-        for (integer i = 0; i < n; i = i + 1) begin
+        for (integer i = 0; i < uut.n; i = i + 1) begin
             wait(index == i);
             $display("%d", arr_out);
         end
@@ -67,7 +67,7 @@ module heap_operations_tb;
         start = 0;
         wait(done);
         $display("Heap after push_heap:");
-        for (integer i = 0; i < n; i = i + 1) begin
+        for (integer i = 0; i < uut.n; i = i + 1) begin
             wait(index == i);
             $display("%d", arr_out);
         end
@@ -79,7 +79,7 @@ module heap_operations_tb;
         start = 0;
         wait(done);
         $display("Heap after pop_heap:");
-        for (integer i = 0; i < n; i = i + 1) begin
+        for (integer i = 0; i < uut.n; i = i + 1) begin
             wait(index == i);
             $display("%d", arr_out);
         end
