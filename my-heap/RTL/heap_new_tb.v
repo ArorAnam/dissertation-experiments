@@ -45,7 +45,7 @@ module heap_operations_tb;
         uut.n = 10;
 
         // VCD dump commands
-        $dumpfile("heap_operations_tb.vcd");
+        $dumpfile("heap_new_operations_tb.vcd");
         $dumpvars(0, heap_operations_tb);
 
         // Start make_heap
