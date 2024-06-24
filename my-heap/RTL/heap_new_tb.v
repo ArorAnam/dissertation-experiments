@@ -8,8 +8,9 @@ module heap_operations_tb;
     reg [31:0] key;
     reg op; // 0 for push, 1 for pop
     wire done;
-    reg [31:0] arr [0:1023];
+    wire [31:0] arr_out;
     wire [9:0] n;
+    wire [9:0] index;
 
     heap_control uut (
         .clk(clk),
@@ -18,8 +19,9 @@ module heap_operations_tb;
         .key(key),
         .op(op),
         .done(done),
-        .arr(arr),
-        .n(n)
+        .arr_out(arr_out),
+        .n(n),
+        .index(index)
     );
 
     // Clock generation
@@ -38,8 +40,8 @@ module heap_operations_tb;
         #10;
 
         // Initialize the heap with random values
-        arr[0] = 10; arr[1] = 20; arr[2] = 5; arr[3] = 6; arr[4] = 1;
-        arr[5] = 8; arr[6] = 9; arr[7] = 4; arr[8] = 7; arr[9] = 2;
+        uut.arr[0] = 10; uut.arr[1] = 20; uut.arr[2] = 5; uut.arr[3] = 6; uut.arr[4] = 1;
+        uut.arr[5] = 8; uut.arr[6] = 9; uut.arr[7] = 4; uut.arr[8] = 7; uut.arr[9] = 2;
         uut.n = 10;
 
         // VCD dump commands
@@ -53,7 +55,8 @@ module heap_operations_tb;
         wait(done);
         $display("Heap after make_heap:");
         for (integer i = 0; i < n; i = i + 1) begin
-            $display("%d", arr[i]);
+            wait(index == i);
+            $display("%d", arr_out);
         end
 
         // Start push_heap
@@ -65,7 +68,8 @@ module heap_operations_tb;
         wait(done);
         $display("Heap after push_heap:");
         for (integer i = 0; i < n; i = i + 1) begin
-            $display("%d", arr[i]);
+            wait(index == i);
+            $display("%d", arr_out);
         end
 
         // Start pop_heap
@@ -76,7 +80,8 @@ module heap_operations_tb;
         wait(done);
         $display("Heap after pop_heap:");
         for (integer i = 0; i < n; i = i + 1) begin
-            $display("%d", arr[i]);
+            wait(index == i);
+            $display("%d", arr_out);
         end
 
         $finish;

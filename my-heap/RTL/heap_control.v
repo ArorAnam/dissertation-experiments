@@ -5,10 +5,12 @@ module heap_control (
     input [31:0] key,
     input op, // 0 for push, 1 for pop
     output reg done,
-    output reg [31:0] arr [0:1023],
-    output reg [9:0] n
+    output reg [9:0] n,
+    output reg [31:0] arr_out,
+    output reg [9:0] index
 );
 
+    reg [31:0] arr [0:1023];
     reg [31:0] temp;
     reg [9:0] i, largest, l, r;
     reg [2:0] state;
@@ -85,9 +87,18 @@ module heap_control (
 
                 DONE: begin
                     done <= 1;
+                    index <= 0;
                     state <= IDLE;
                 end
             endcase
+        end
+    end
+
+    // Output array elements one by one
+    always @(posedge clk) begin
+        if (done) begin
+            arr_out <= arr[index];
+            index <= index + 1;
         end
     end
 endmodule
