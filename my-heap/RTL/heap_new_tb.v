@@ -9,7 +9,6 @@ module heap_operations_tb;
     reg op; // 0 for push, 1 for pop
     wire done;
     reg [31:0] arr [0:1023];
-    wire [31:0] out_arr [0:1023];
     wire [9:0] n;
 
     heap_control uut (
@@ -54,7 +53,7 @@ module heap_operations_tb;
         wait(done);
         $display("Heap after make_heap:");
         for (integer i = 0; i < n; i = i + 1) begin
-            $display("%d", out_arr[i]);
+            $display("%d", arr[i]);
         end
 
         // Start push_heap
@@ -66,7 +65,7 @@ module heap_operations_tb;
         wait(done);
         $display("Heap after push_heap:");
         for (integer i = 0; i < n; i = i + 1) begin
-            $display("%d", out_arr[i]);
+            $display("%d", arr[i]);
         end
 
         // Start pop_heap
@@ -77,7 +76,7 @@ module heap_operations_tb;
         wait(done);
         $display("Heap after pop_heap:");
         for (integer i = 0; i < n; i = i + 1) begin
-            $display("%d", out_arr[i]);
+            $display("%d", arr[i]);
         end
 
         $finish;

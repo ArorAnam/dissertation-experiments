@@ -9,8 +9,7 @@ module heap_control (
     output reg [9:0] n
 );
 
-    reg [31:0] temp_arr [0:1023];
-    reg [31:0] element;
+    reg [31:0] temp;
     reg [9:0] i, largest, l, r;
     reg [2:0] state;
 
@@ -32,7 +31,6 @@ module heap_control (
                 IDLE: begin
                     done <= 0;
                     if (start) begin
-                        temp_arr <= arr;
                         state <= INIT;
                     end
                 end
@@ -45,17 +43,17 @@ module heap_control (
                 end
 
                 HEAPIFY: begin
-                    largest = i;
-                    l = 2 * i + 1;
-                    r = 2 * i + 2;
-                    if (l < n && temp_arr[l] > temp_arr[largest])
-                        largest = l;
-                    if (r < n && temp_arr[r] > temp_arr[largest])
-                        largest = r;
+                    largest <= i;
+                    l <= 2 * i + 1;
+                    r <= 2 * i + 2;
+                    if (l < n && arr[l] > arr[largest])
+                        largest <= l;
+                    if (r < n && arr[r] > arr[largest])
+                        largest <= r;
                     if (largest != i) begin
-                        element = temp_arr[i];
-                        temp_arr[i] = temp_arr[largest];
-                        temp_arr[largest] = element;
+                        temp <= arr[i];
+                        arr[i] <= arr[largest];
+                        arr[largest] <= temp;
                         i <= largest;
                     end else begin
                         state <= MAKE_HEAP;
@@ -67,20 +65,19 @@ module heap_control (
                         i <= i - 1;
                         state <= HEAPIFY;
                     end else begin
-                        arr <= temp_arr;
                         state <= DONE;
                     end
                 end
 
                 PUSH: begin
                     n <= n + 1;
-                    temp_arr[n] <= key;
+                    arr[n] <= key;
                     i <= (n + 1) / 2 - 1;
                     state <= MAKE_HEAP;
                 end
 
                 POP: begin
-                    temp_arr[0] <= temp_arr[n - 1];
+                    arr[0] <= arr[n - 1];
                     n <= n - 1;
                     i <= 0;
                     state <= HEAPIFY;
