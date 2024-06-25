@@ -56,8 +56,7 @@ module heap_operations_tb;
         #10; // Ensure state transitions
         $display("Heap after make_heap:");
         for (integer i = 0; i < uut.n; i = i + 1) begin
-            wait(index == i);
-            $display("%d", arr_out);
+            $display("%d", uut.arr[i]);
         end
 
         // Start push_heap
@@ -70,8 +69,7 @@ module heap_operations_tb;
         #10; // Ensure state transitions
         $display("Heap after push_heap:");
         for (integer i = 0; i < uut.n; i = i + 1) begin
-            wait(index == i);
-            $display("%d", arr_out);
+            $display("%d", uut.arr[i]);
         end
 
         // Start pop_heap
@@ -83,8 +81,7 @@ module heap_operations_tb;
         #10; // Ensure state transitions
         $display("Heap after pop_heap:");
         for (integer i = 0; i < uut.n; i = i + 1) begin
-            wait(index == i);
-            $display("%d", arr_out);
+            $display("%d", uut.arr[i]);
         end
 
         $finish;
