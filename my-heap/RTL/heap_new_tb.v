@@ -45,7 +45,7 @@ module heap_operations_tb;
         uut.n = 10;
 
         // VCD dump commands
-        $dumpfile("heap_new_operations_tb.vcd");
+        $dumpfile("heap_operations_tb.vcd");
         $dumpvars(0, heap_operations_tb);
 
         // Start make_heap
@@ -53,6 +53,7 @@ module heap_operations_tb;
         #10;
         start = 0;
         wait(done);
+        #10; // Ensure state transitions
         $display("Heap after make_heap:");
         for (integer i = 0; i < uut.n; i = i + 1) begin
             wait(index == i);
@@ -66,6 +67,7 @@ module heap_operations_tb;
         #10;
         start = 0;
         wait(done);
+        #10; // Ensure state transitions
         $display("Heap after push_heap:");
         for (integer i = 0; i < uut.n; i = i + 1) begin
             wait(index == i);
@@ -78,6 +80,7 @@ module heap_operations_tb;
         #10;
         start = 0;
         wait(done);
+        #10; // Ensure state transitions
         $display("Heap after pop_heap:");
         for (integer i = 0; i < uut.n; i = i + 1) begin
             wait(index == i);

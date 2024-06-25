@@ -33,6 +33,7 @@ module heap_control (
             case (state)
                 IDLE: begin
                     done <= 0;
+                    index <= 0;
                     if (start) begin
                         state <= INIT;
                     end
@@ -46,17 +47,17 @@ module heap_control (
                 end
 
                 HEAPIFY: begin
-                    largest <= i;
-                    l <= 2 * i + 1;
-                    r <= 2 * i + 2;
+                    largest = i;
+                    l = 2 * i + 1;
+                    r = 2 * i + 2;
                     if (l < n && arr[l] > arr[largest])
-                        largest <= l;
+                        largest = l;
                     if (r < n && arr[r] > arr[largest])
-                        largest <= r;
+                        largest = r;
                     if (largest != i) begin
-                        temp <= arr[i];
-                        arr[i] <= arr[largest];
-                        arr[largest] <= temp;
+                        temp = arr[i];
+                        arr[i] = arr[largest];
+                        arr[largest] = temp;
                         i <= largest;
                     end else begin
                         state <= MAKE_HEAP;
@@ -88,7 +89,6 @@ module heap_control (
 
                 DONE: begin
                     done <= 1;
-                    index <= 0;
                     state <= IDLE;
                 end
             endcase
