@@ -63,30 +63,35 @@ module tb_C3_custom_heap_instruction();
         reset = 0;
 
         // Insert elements into the heap
+        #10;
         in_v = 1;
         vrd1 = 3'b000; // pushHeap operation
         rd = 0;  // Not used in this test
         in_data = 10;  // Push value 10
-        #10;  // Duration of the signal
+        #10;
+        in_v = 0;
 
+        #20;
+        in_v = 1;
         in_data = 20;  // Push value 20
         #10;
+        in_v = 0;
 
+        #30;
+        in_v = 1;
         in_data = 15;  // Push value 15
         #10;
+        in_v = 0;
 
-        in_v = 0; // End of operations
-        #10;
-
-        // Pop elements from the heap
+        #40;
         in_v = 1;
         vrd1 = 3'b001; // popHeap operation
         #10;
-
         in_v = 0;
-        #10;
 
-        // Check the outputs and perform further operations as needed
+        // Add delay for observing final outputs
+        #50;
+        $stop; // Properly end the simulation
     end
 
     // Display changes on important signals
