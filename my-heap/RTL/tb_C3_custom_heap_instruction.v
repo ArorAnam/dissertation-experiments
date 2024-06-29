@@ -61,6 +61,7 @@ module tb_C3_custom_heap_instruction();
         // Wait 100 ns for global reset
         #100;
         reset = 0;
+        #50;  // Ensure reset is settled
 
         // Insert elements into the heap
         #10;
@@ -69,7 +70,7 @@ module tb_C3_custom_heap_instruction();
         rd = 0;  // Not used in this test
         in_data = 10;  // Push value 10
         #10;
-        in_v = 0;
+        in_v = 0; // Turn off valid to simulate completion
 
         #20;
         in_v = 1;
@@ -83,14 +84,16 @@ module tb_C3_custom_heap_instruction();
         #10;
         in_v = 0;
 
-        #40;
+        // Wait before pop to let data settle
+        #50;
         in_v = 1;
         vrd1 = 3'b001; // popHeap operation
         #10;
         in_v = 0;
 
-        // Add delay for observing final outputs
+        // Final Output Verification
         #50;
+        $display("Expected output after Pop: 15, Actual Output: %d", out_data);
         $stop; // Properly end the simulation
     end
 
