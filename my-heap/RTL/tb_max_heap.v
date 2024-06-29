@@ -73,4 +73,10 @@ module tb_max_heap;
                  $time, data_in, insert, delete, data_out, heap_full, heap_empty);
     end
 
+     // Waveform generation
+    initial begin
+        $dumpfile("heap_waveform.vcd");
+        $dumpvars(0, tb_max_heap);
+    end
+
 endmodule
