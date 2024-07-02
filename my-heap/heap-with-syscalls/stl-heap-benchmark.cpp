@@ -10,8 +10,9 @@ extern "C" {
 #include <chrono>
 
 // Benchmark function using STL heap functions with additional metrics
-void benchmarkSTLHeapOperations(size_t initialHeapSize, int popRatePercent, int duration_seconds) {
-    std::vector<int> heap(initialHeapSize + duration_seconds * 100);
+void benchmarkSTLHeapOperations(int initialHeapSize, int popRatePercent, int duration_seconds) {
+    // std::vector<int> heap(initialHeapSize + duration_seconds * 100);
+    int* heap = new int(initialHeapSize + duration_seconds * 100);
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     // Fill the heap with random values
