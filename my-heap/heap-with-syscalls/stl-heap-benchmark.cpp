@@ -68,7 +68,6 @@ int main() {
     int heap_size = 10;
     int pop_rate = 50;
     int duration_seconds = 1; // Reduced duration for the benchmark
-    int duration_seconds = 1; // Reduced duration for the benchmark
 
     // for (size_t heap_size : heap_sizes) {
     //     for (int pop_rate : pop_rates) {
