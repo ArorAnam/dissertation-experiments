@@ -5,8 +5,8 @@ module heap_operations_tb;
     reg clk;
     reg reset;
     reg start;
+    reg [1:0] instruction; // 00: No-op, 01: Push, 10: Pop
     reg [31:0] key;
-    reg op; // 0 for push, 1 for pop
     wire done;
     wire [31:0] arr_out;
     wire [9:0] n;
@@ -16,8 +16,8 @@ module heap_operations_tb;
         .clk(clk),
         .reset(reset),
         .start(start),
+        .instruction(instruction),
         .key(key),
-        .op(op),
         .done(done),
         .arr_out(arr_out),
         .n(n),
@@ -34,14 +34,16 @@ module heap_operations_tb;
     initial begin
         reset = 1;
         start = 0;
-        op = 0;
+        instruction = 2'b00;
+        key = 0;
         #10;
         reset = 0;
         #10;
 
         // Initialize the heap with random values
-        uut.arr[0] = 10; uut.arr[1] = 20; uut.arr[2] = 5; uut.arr[3] = 6; uut.arr[4] = 1;
-        uut.arr[5] = 8; uut.arr[6] = 9; uut.arr[7] = 4; uut.arr[8] = 7; uut.arr[9] = 2;
+        for (integer j = 0; j < 10; j = j + 1) begin
+            uut.arr[j] = $random % 100;
+        end
         uut.n = 10;
 
         // VCD dump commands
@@ -50,6 +52,7 @@ module heap_operations_tb;
 
         // Start make_heap
         start = 1;
+        instruction = 2'b00; // No-op to trigger make_heap
         #10;
         start = 0;
         wait(done);
@@ -61,7 +64,7 @@ module heap_operations_tb;
 
         // Start push_heap
         key = 15;
-        op = 0;
+        instruction = 2'b01; // Push
         start = 1;
         #10;
         start = 0;
@@ -73,7 +76,7 @@ module heap_operations_tb;
         end
 
         // Start pop_heap
-        op = 1;
+        instruction = 2'b10; // Pop
         start = 1;
         #10;
         start = 0;
