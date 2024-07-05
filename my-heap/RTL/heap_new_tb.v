@@ -32,6 +32,7 @@ module heap_operations_tb;
 
     // Test sequence
     initial begin
+        $monitor("Time=%0d, State=%0d, Done=%0d, N=%0d, Key=%0d, Instruction=%0d", $time, uut.state, done, n, key, instruction);
         reset = 1;
         start = 0;
         instruction = 2'b00;
