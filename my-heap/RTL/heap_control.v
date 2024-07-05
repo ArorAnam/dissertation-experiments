@@ -6,92 +6,71 @@ module heap_control (
     input [31:0] key,
     output reg done,
     output reg [9:0] n,
-    output reg [31:0] arr_out,
-    output reg [9:0] index
+    output reg [31:0] arr_out
 );
 
-    reg [31:0] arr [0:1023]; // Heap array
-    reg [31:0] temp; // Temporary variable for swapping elements
-    reg [9:0] i, largest, l, r; // Indices for heap operations
-    reg [2:0] state; // State register
+    reg [31:0] arr [0:1023];
+    reg [31:0] temp;
+    reg [9:0] i, largest, l, r;
+    reg [2:0] state;
 
-    localparam IDLE = 3'b000,
-               INIT = 3'b001,
-               HEAPIFY = 3'b010,
-               MAKE_HEAP = 3'b011,
-               PUSH = 3'b100,
-               POP = 3'b101,
-               DONE = 3'b110;
+    localparam IDLE = 0,
+               INIT = 1,
+               HEAPIFY = 2,
+               MAKE_HEAP = 3,
+               PUSH = 4,
+               POP = 5,
+               DONE = 6;
 
     always @(posedge clk or posedge reset) begin
         if (reset) begin
             state <= IDLE;
             done <= 0;
             n <= 0;
-            index <= 0;
-            for (i = 0; i < 1024; i = i + 1) begin
-                arr[i] <= 0;
-            end
+            arr_out <= 0;
+            for (i = 0; i < 1024; i = i + 1) arr[i] <= 0;
         end else begin
             case (state)
                 IDLE: begin
                     done <= 0;
-                    index <= 0;
-                    if (start) begin
-                        state <= INIT;
-                    end
+                    if (start) state <= INIT;
                 end
-
                 INIT: begin
-                    if (instruction == 2'b01) // push
-                        state <= PUSH;
-                    else if (instruction == 2'b10) // pop
-                        state <= POP;
-                    else
-                        state <= DONE;
+                    if (instruction == 2'b01) state <= PUSH;
+                    else if (instruction == 2'b10) state <= POP;
+                    else state <= DONE;
                 end
-
+                PUSH: begin
+                    arr[n] <= key;
+                    n <= n + 1;
+                    state <= MAKE_HEAP;
+                    i <= (n - 1) >> 1;
+                end
+                POP: begin
+                    arr[0] <= arr[n - 1];
+                    n <= n - 1;
+                    state <= HEAPIFY;
+                    i <= 0;
+                end
+                MAKE_HEAP: begin
+                    if (i > 0) begin
+                        i <= i - 1;
+                        state <= HEAPIFY;
+                    end else state <= DONE;
+                end
                 HEAPIFY: begin
                     largest = i;
-                    l = (i << 1) + 1; // l = 2 * i + 1
-                    r = (i << 1) + 2; // r = 2 * i + 2
-                    if (l < n && arr[l] > arr[largest])
-                        largest = l;
-                    if (r < n && arr[r] > arr[largest])
-                        largest = r;
+                    l = (i << 1) + 1;
+                    r = l + 1;
+                    if (l < n && arr[l] > arr[largest]) largest = l;
+                    if (r < n && arr[r] > arr[largest]) largest = r;
                     if (largest != i) begin
                         temp = arr[i];
                         arr[i] = arr[largest];
                         arr[largest] = temp;
                         i <= largest;
-                    end else begin
-                        state <= MAKE_HEAP;
-                    end
+                    end else state <= MAKE_HEAP;
                 end
-
-                MAKE_HEAP: begin
-                    if (i > 0) begin
-                        i <= i - 1;
-                        state <= HEAPIFY;
-                    end else begin
-                        state <= DONE;
-                    end
-                end
-
-                PUSH: begin
-                    n <= n + 1;
-                    arr[n] <= key;
-                    i <= (n - 1) >> 1; // i = (n + 1) / 2 - 1 without division
-                    state <= MAKE_HEAP;
-                end
-
-                POP: begin
-                    arr[0] <= arr[n - 1];
-                    n <= n - 1;
-                    i <= 0;
-                    state <= HEAPIFY;
-                end
-
                 DONE: begin
                     done <= 1;
                     state <= IDLE;
@@ -100,11 +79,7 @@ module heap_control (
         end
     end
 
-    // Output array elements one by one
     always @(posedge clk) begin
-        if (done && index < n) begin
-            arr_out <= arr[index];
-            index <= index + 1;
-        end
+        if (done && n > 0) arr_out <= arr[0]; // Output the root of the heap
     end
 endmodule

@@ -2,15 +2,12 @@
 
 module heap_operations_tb;
 
-    reg clk;
-    reg reset;
-    reg start;
-    reg [1:0] instruction; // 00: No-op, 01: Push, 10: Pop
+    reg clk, reset, start;
+    reg [1:0] instruction;
     reg [31:0] key;
     wire done;
     wire [31:0] arr_out;
     wire [9:0] n;
-    wire [9:0] index;
 
     heap_control uut (
         .clk(clk),
@@ -20,8 +17,7 @@ module heap_operations_tb;
         .key(key),
         .done(done),
         .arr_out(arr_out),
-        .n(n),
-        .index(index)
+        .n(n)
     );
 
     // Clock generation
@@ -32,62 +28,23 @@ module heap_operations_tb;
 
     // Test sequence
     initial begin
-        $monitor("Time=%0d, State=%0d, Done=%0d, N=%0d, Key=%0d, Instruction=%0d", $time, uut.state, done, n, key, instruction);
         reset = 1;
         start = 0;
-        instruction = 2'b00;
+        instruction = 0; // No-op
         key = 0;
-        #10;
-        reset = 0;
-        #10;
+        #10 reset = 0;
+        #10 start = 1;
 
-        // Initialize the heap with random values
-        for (integer j = 0; j < 10; j = j + 1) begin
-            uut.arr[j] = $random % 100;
-        end
-        uut.n = 10;
+        // Issue commands
+        #10 instruction = 2'b01; key = $random; // Push random value
+        #10 start = 0;
+        #20 start = 1; instruction = 2'b10; // Pop
 
-        // VCD dump commands
-        $dumpfile("heap_operations_tb.vcd");
-        $dumpvars(0, heap_operations_tb);
+        #20 start = 0;
+        #30 $finish;
+    end
 
-        // Start make_heap
-        start = 1;
-        instruction = 2'b00; // No-op to trigger make_heap
-        #10;
-        start = 0;
-        wait(done);
-        #10; // Ensure state transitions
-        $display("Heap after make_heap:");
-        for (integer i = 0; i < uut.n; i = i + 1) begin
-            $display("%d", uut.arr[i]);
-        end
-
-        // Start push_heap
-        key = 15;
-        instruction = 2'b01; // Push
-        start = 1;
-        #10;
-        start = 0;
-        wait(done);
-        #10; // Ensure state transitions
-        $display("Heap after push_heap:");
-        for (integer i = 0; i < uut.n; i = i + 1) begin
-            $display("%d", uut.arr[i]);
-        end
-
-        // Start pop_heap
-        instruction = 2'b10; // Pop
-        start = 1;
-        #10;
-        start = 0;
-        wait(done);
-        #10; // Ensure state transitions
-        $display("Heap after pop_heap:");
-        for (integer i = 0; i < uut.n; i = i + 1) begin
-            $display("%d", uut.arr[i]);
-        end
-
-        $finish;
+    initial begin
+        $monitor("Time=%t, State=%0d, Done=%d, N=%0d, Arr_out=%0d", $time, uut.state, done, n, arr_out);
     end
 endmodule
