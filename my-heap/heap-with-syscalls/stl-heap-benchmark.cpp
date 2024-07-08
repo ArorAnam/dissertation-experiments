@@ -1,41 +1,41 @@
-// syscalls.c - assume to be the same as provided earlier with necessary modifications for extern "C"
-extern "C" {
-    #include "syscalls.c"
-}
-
 #include <iostream>
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
 #include <chrono>
 
+// Assuming syscalls.c has been adapted for extern "C" and includes necessary timing functions
+extern "C" {
+    #include "syscalls.c"
+}
+
 // Benchmark function using STL heap functions with additional metrics
 void benchmarkSTLHeapOperations(int initialHeapSize, int popRatePercent, int duration_seconds) {
-    // std::vector<int> heap(initialHeapSize + duration_seconds * 100);
-    int* heap = new int(initialHeapSize + duration_seconds * 100);
+    int* heap = new int[initialHeapSize + duration_seconds * 100];  // Sufficient space for dynamic changes
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     // Fill the heap with random values
-    for (size_t i = 0; i < initialHeapSize; ++i) {
+    for (int i = 0; i < initialHeapSize; ++i) {
         heap[i] = std::rand() % 1000;
     }
 
-    std::make_heap(heap.begin(), heap.begin() + initialHeapSize);
+    std::make_heap(heap, heap + initialHeapSize);
 
+    size_t currentSize = initialHeapSize;  // Current dynamic size of the heap
     size_t operations = 0;
     size_t push_operations = 0;
     size_t pop_operations = 0;
     uint64_t startTime = riscv_time();
 
-    while (riscv_time() - startTime < static_cast<uint64_t>(duration_seconds) * 1000000) { // convert seconds to microseconds
-        if (std::rand() % 100 < popRatePercent && initialHeapSize > 0) {
-            std::pop_heap(heap.begin(), heap.begin() + initialHeapSize);
-            --initialHeapSize;
+    while (riscv_time() - startTime < static_cast<uint64_t>(duration_seconds) * 1000000) {  // Convert seconds to microseconds
+        if (std::rand() % 100 < popRatePercent && currentSize > 0) {
+            std::pop_heap(heap, heap + currentSize);
+            --currentSize;  // Decrease current heap size after popping
             ++pop_operations;
-        } else {
-            heap[initialHeapSize] = std::rand() % 1000;
-            ++initialHeapSize;
-            std::push_heap(heap.begin(), heap.begin() + initialHeapSize);
+        } else if (currentSize < initialHeapSize + duration_seconds * 100) {  // Check to avoid overflow
+            heap[currentSize] = std::rand() % 1000;
+            ++currentSize;  // Increase current heap size after pushing
+            std::push_heap(heap, heap + currentSize);
             ++push_operations;
         }
         ++operations;
@@ -45,10 +45,10 @@ void benchmarkSTLHeapOperations(int initialHeapSize, int popRatePercent, int dur
     uint64_t elapsed = endTime - startTime;
     double elapsed_seconds = elapsed / 1000000.0;
     double opsPerSecond = operations / elapsed_seconds;
-    double avgTimePerOp = elapsed_seconds / operations * 1000; // in milliseconds
+    double avgTimePerOp = 1000.0 * elapsed_seconds / operations;  // in milliseconds
 
     char buffer[256];
-    sprintf(buffer, "Heap Size: %zu, Pop Rate: %d%%\n", initialHeapSize, popRatePercent);
+    sprintf(buffer, "Initial Heap Size: %d, Current Heap Size: %zu, Pop Rate: %d%%\n", initialHeapSize, currentSize, popRatePercent);
     printstr(buffer);
     sprintf(buffer, "Performed %zu operations in %.2f seconds (%.2f OP/s)\n", operations, elapsed_seconds, opsPerSecond);
     printstr(buffer);
@@ -57,6 +57,8 @@ void benchmarkSTLHeapOperations(int initialHeapSize, int popRatePercent, int dur
     sprintf(buffer, "Average Time per Operation: %.4f ms\n", avgTimePerOp);
     printstr(buffer);
     printstr("----------------------------------------\n");
+
+    delete[] heap;
 }
 
 int main() {
