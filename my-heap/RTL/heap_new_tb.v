@@ -30,12 +30,14 @@ module heap_operations_tb;
         start = 0;
         instruction = 0; // No-op
         key = $random % 1000;
-        #10 reset = 0;
+        #10;
+        reset = 0;
 
         // Delay after reset
         #20;
 
         // Push operation
+        $display("Starting push operation");
         start = 1;
         instruction = 2'b01; // Push
         key = $random % 1000;
@@ -43,7 +45,12 @@ module heap_operations_tb;
 
         #50; // Wait for operation to potentially complete
 
+        // Check if done signal is asserted
+        if (done) $display("Push operation completed");
+        else $display("Push operation not completed");
+
         // Pop operation
+        $display("Starting pop operation");
         start = 1;
         instruction = 2'b10; // Pop
         #10 start = 0;
@@ -51,16 +58,16 @@ module heap_operations_tb;
         // Additional time to allow for operations to complete
         #50;
 
-        if (!done) begin
-            $display("Timeout or hang detected, operation did not complete.");
-            $finish;
-        end
+        // Check if done signal is asserted
+        if (done) $display("Pop operation completed");
+        else $display("Pop operation not completed");
 
-        $display("Heap after operations: Key = %d, Top = %d", key, arr_out);
+        // Finish the simulation
+        $display("Heap after operations: Top = %d", arr_out);
         $finish;
     end
 
     initial begin
-        $monitor("Time=%t, State=%0d, Done=%d, N=%0d, Key=%0d, Instruction=%0d", $time, uut.state, done, n, key, instruction);
+        $monitor("Time=%0d, State=%0d, Done=%d, N=%0d, Key=%0d, Instruction=%0d", $time, uut.state, done, n, key, instruction);
     end
 endmodule
