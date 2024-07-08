@@ -83,7 +83,7 @@ void benchmarkCustomHeapOperations(int initialHeapSize, int popRatePercent, int 
         if (std::rand() % 100 < popRatePercent && heapSize > 0) {
             popHeap(heap, heapSize);
             ++pop_operations;
-        } else {
+        } else if (heapSize < initialHeapSize + duration_seconds * 100) {  // Check to avoid overflow) {
             int value = std::rand() % 1000;
             pushHeap(heap, heapSize, value);
             ++push_operations;
@@ -98,7 +98,7 @@ void benchmarkCustomHeapOperations(int initialHeapSize, int popRatePercent, int 
     double avgTimePerOp = elapsed_seconds / operations * 1000; // in milliseconds
 
     char buffer[256];
-    sprintf(buffer, "Heap Size: %d, Pop Rate: %d%%\n", initialHeapSize, popRatePercent);
+    sprintf(buffer, "Initial Heap Size: %d, Current Heap Size: %zu, Pop Rate: %d%%\n", initialHeapSize, heapSize, popRatePercent);
     printstr(buffer);
     sprintf(buffer, "Performed %zu operations in %.2f seconds (%.2f OP/s)\n", operations, elapsed_seconds, opsPerSecond);
     printstr(buffer);
