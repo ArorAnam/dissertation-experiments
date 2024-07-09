@@ -6,15 +6,16 @@ module heap_module(
     input enable,
     input [4:0] operation,
     input [31:0] input_value,
-    output reg [31:0] heap_array[`MAX_HEAP_SIZE-1:0],
+    input [4:0] index,           // For accessing specific elements if needed
+    output reg [31:0] output_value,  // Output a specific element value
     output reg [4:0] heap_size
 );
 
 localparam INIT = 0, PUSH = 1, POP = 2, SORT = 3;
 
 integer i, j, idx;
+reg [31:0] heap_array[`MAX_HEAP_SIZE-1:0];
 reg [31:0] temp;
-reg done;
 
 always @(posedge clk or posedge reset) begin
     if (reset) begin
@@ -22,6 +23,7 @@ always @(posedge clk or posedge reset) begin
             heap_array[i] <= 0;
         end
         heap_size <= 0;
+        output_value <= 0;
     end else if (enable) begin
         case (operation)
             INIT: begin
@@ -53,6 +55,7 @@ always @(posedge clk or posedge reset) begin
             end
         endcase
     end
+    output_value <= heap_array[index];  // Output the requested element for external viewing
 end
 
 task heapify;
@@ -63,8 +66,7 @@ task heapify;
     begin
         current = start;
         child = 2 * current + 1;
-        done = 0;
-        while (child < size && !done) begin
+        while (child < size) begin
             if (child + 1 < size && heap_array[child] < heap_array[child + 1]) begin
                 child = child + 1;
             end
@@ -75,7 +77,7 @@ task heapify;
                 current = child;
                 child = 2 * current + 1;
             end else begin
-                done = 1;
+                return;
             end
         end
     end
