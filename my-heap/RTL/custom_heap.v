@@ -65,15 +65,16 @@ task heapify;
         child = 2 * current + 1;
         done = 0;
         while (child < size && !done) begin
-            if (child + 1 < size && heap_array[child] < heap_array[child + 1])
+            if (child + 1 < size && heap_array[child] < heap_array[child + 1]) begin
                 child = child + 1;
+            end
             if (heap_array[current] < heap_array[child]) begin
                 i_temp = heap_array[current];
                 heap_array[current] = heap_array[child];
                 heap_array[child] = i_temp;
                 current = child;
                 child = 2 * current + 1;
-            else
+            end else begin
                 done = 1;
             end
         end
