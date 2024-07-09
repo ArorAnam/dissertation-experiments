@@ -14,6 +14,7 @@ localparam INIT = 0, PUSH = 1, POP = 2, SORT = 3;
 
 integer i, j, idx;
 reg [31:0] temp;
+reg done;
 
 always @(posedge clk or posedge reset) begin
     if (reset) begin
@@ -61,8 +62,9 @@ task heapify;
     reg [31:0] i_temp;
     begin
         current = start;
-        child = 2*current + 1;
-        while (child < size) begin
+        child = 2 * current + 1;
+        done = 0;
+        while (child < size && !done) begin
             if (child + 1 < size && heap_array[child] < heap_array[child + 1])
                 child = child + 1;
             if (heap_array[current] < heap_array[child]) begin
@@ -70,9 +72,9 @@ task heapify;
                 heap_array[current] = heap_array[child];
                 heap_array[child] = i_temp;
                 current = child;
-                child = 2*current + 1;
-            end else begin
-                return;
+                child = 2 * current + 1;
+            else
+                done = 1;
             end
         end
     end
