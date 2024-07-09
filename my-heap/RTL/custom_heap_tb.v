@@ -48,6 +48,7 @@ initial begin
     $finish;
 end
 
+integer i; // Declaration of i
 always @(posedge clk) begin
     if (enable) begin
         $display("Heap size: %d", heap_size);

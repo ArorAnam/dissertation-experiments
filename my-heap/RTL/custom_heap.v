@@ -72,7 +72,7 @@ task heapify;
                 current = child;
                 child = 2*current + 1;
             end else begin
-                break;
+                return;
             end
         end
     end
