@@ -93,7 +93,7 @@ int main() {
     std::srand(static_cast<unsigned>(std::time(nullptr)));
 
     // Significantly increased heap sizes
-    std::vector<size_t> heap_sizes = {1'000'000, 10'000'000, 100'000'000};
+    std::vector<size_t> heap_sizes = {10, 100, 500, 1000, 100000, 500000, 1000000};
     std::vector<int> pop_rates = {10, 20, 50}; // Defined pop rates
     int duration_seconds = 1; // Defined duration for the benchmark
 

@@ -1,0 +1,22 @@
+Entered into main
+Benchmarking Heap Size: 1000000, Pop Rate: 10%
+Heap Size: 1000000, Pop Rate: 10%
+Performed 15090 operations in 1 seconds (15090 OP/s)
+Push Operations: 1493, Pop Operations: 1493
+----------------------------------------
+Benchmarking Heap Size: 1000000, Pop Rate: 20%
+Heap Size: 1000000, Pop Rate: 20%
+Performed 7462 operations in 1 seconds (7462 OP/s)
+Push Operations: 1494, Pop Operations: 1495
+----------------------------------------
+Benchmarking Heap Size: 1000000, Pop Rate: 50%
+Heap Size: 1000000, Pop Rate: 50%
+Performed 3081 operations in 1 seconds (3081 OP/s)
+Push Operations: 1494, Pop Operations: 1535
+----------------------------------------
+Benchmarking Heap Size: 10000000, Pop Rate: 10%
+Heap Size: 10000000, Pop Rate: 10%
+Performed 2105 operations in 1.001 seconds (2102.9 OP/s)
+Push Operations: 214, Pop Operations: 214
+----------------------------------------
+Benchmarking Heap Size: 10000000, Pop Rate: 20%

@@ -1,0 +1,76 @@
+Entered into main
+Heap Size: 1000000, Pop Rate: 1%
+Operations: 25316092
+Elapsed Time (ms): 1000
+Operations per second: 2.53161e+07
+----------------------------------------
+Heap Size: 1000000, Pop Rate: 5%
+Operations: 23702352
+Elapsed Time (ms): 1000
+Operations per second: 2.37024e+07
+----------------------------------------
+Heap Size: 1000000, Pop Rate: 10%
+Operations: 22461228
+Elapsed Time (ms): 1000
+Operations per second: 2.24612e+07
+----------------------------------------
+Heap Size: 1000000, Pop Rate: 20%
+Operations: 20068437
+Elapsed Time (ms): 1000
+Operations per second: 2.00684e+07
+----------------------------------------
+Heap Size: 1000000, Pop Rate: 50%
+Operations: 18258553
+Elapsed Time (ms): 1000
+Operations per second: 1.82586e+07
+----------------------------------------
+Heap Size: 10000000, Pop Rate: 1%
+Operations: 24828837
+Elapsed Time (ms): 1000
+Operations per second: 2.48288e+07
+----------------------------------------
+Heap Size: 10000000, Pop Rate: 5%
+Operations: 22441855
+Elapsed Time (ms): 1000
+Operations per second: 2.24419e+07
+----------------------------------------
+Heap Size: 10000000, Pop Rate: 10%
+Operations: 19758759
+Elapsed Time (ms): 1000
+Operations per second: 1.97588e+07
+----------------------------------------
+Heap Size: 10000000, Pop Rate: 20%
+Operations: 16394738
+Elapsed Time (ms): 1000
+Operations per second: 1.63947e+07
+----------------------------------------
+Heap Size: 10000000, Pop Rate: 50%
+Operations: 10275603
+Elapsed Time (ms): 1000
+Operations per second: 1.02756e+07
+----------------------------------------
+Heap Size: 100000000, Pop Rate: 1%
+Operations: 23026270
+Elapsed Time (ms): 1000
+Operations per second: 2.30263e+07
+----------------------------------------
+Heap Size: 100000000, Pop Rate: 5%
+Operations: 19581579
+Elapsed Time (ms): 1000
+Operations per second: 1.95816e+07
+----------------------------------------
+Heap Size: 100000000, Pop Rate: 10%
+Operations: 16579703
+Elapsed Time (ms): 1000
+Operations per second: 1.65797e+07
+----------------------------------------
+Heap Size: 100000000, Pop Rate: 20%
+Operations: 12568767
+Elapsed Time (ms): 1000
+Operations per second: 1.25688e+07
+----------------------------------------
+Heap Size: 100000000, Pop Rate: 50%
+Operations: 7342754
+Elapsed Time (ms): 1000
+Operations per second: 7.34275e+06
+----------------------------------------

@@ -45,12 +45,14 @@ void benchmark_stl_heap(size_t heap_size, int pop_rate, int duration_seconds) {
 
 int main() {
     std::cout << "Entered into main" << std::endl;
-    std::vector<size_t> heap_sizes = {10, 50, 100, 500, 1000}; // Different heap sizes for benchmarking
+    // std::vector<size_t> heap_sizes = {10, 100, 500, 1000, 100000, 500000, 1000000}; // Different heap sizes for benchmarking
+    std::vector<size_t> heap_sizes = {1'000'000, 10'000'000, 100'000'000};
     std::vector<int> pop_rates = {1, 5, 10, 20, 50}; // Different pop rates in percentage
+    int duration_seconds = 1; // Defined duration for the benchmark
 
     for (size_t heap_size : heap_sizes) {
         for (int pop_rate : pop_rates) {
-            benchmark_stl_heap(heap_size, pop_rate, 30); // Run each benchmark for 1 second
+            benchmark_stl_heap(heap_size, pop_rate, duration_seconds); // Run each benchmark for 1 second
         }
     }
 
