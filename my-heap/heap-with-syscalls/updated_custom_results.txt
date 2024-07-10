@@ -1,0 +1,102 @@
+Using language generation: IEEE1800-2005,no-specify,xtypes,icarus-misc
+PARSING INPUT
+LOCATING TOP-LEVEL MODULES
+   PrefixSum1x8x32bit Top_Level
+ELABORATING DESIGN
+RUNNING FUNCTORS
+ ... Iteration detected 0 optimizations.
+ ... Look for dangling constants
+ ... done
+ ... scan for dangling signal and event nodes. (scomplete=F, ecomplete=F)
+ ... 1 iterations deleted 547 dangling signals and 0 events.
+ ... scan for dangling signal and event nodes. (scomplete=T, ecomplete=F)
+ ... 2 iterations deleted 547 dangling signals and 118 events.
+ ... done
+CALCULATING ISLANDS
+CODE GENERATION
+ ... invoking target_design
+STATISTICS
+lex_string: add_count=1377 hit_count=12690
+Icarus Verilog version 12.0 (stable) (v12_0-dirty)
+
+Copyright (c) 2000-2021 Stephen Williams (steve@icarus.com)
+
+  This program is free software; you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation; either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with this program; if not, write to the Free Software Foundation, Inc.,
+  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+
+translate: /usr/lib/ivl/ivlpp -v -L -Wredef-chg -F"/tmp/ivrlg255b2d457" -f"/tmp/ivrlg55b2d457" -p"/tmp/ivrli55b2d457" |/usr/lib/ivl/ivl -v -C"/tmp/ivrlh55b2d457" -C"/usr/lib/ivl/vvp.conf" -- -
+Entered into main
+Initial Heap Size: 10, Current Heap Size: 110, Pop Rate: 10%
+Performed 3173 operations in 1.00 seconds (3169.12 OP/s)
+Push Operations: 431, Pop Operations: 331
+Average Time per Operation: 0.3155 ms
+----------------------------------------
+Initial Heap Size: 10, Current Heap Size: 110, Pop Rate: 20%
+Performed 1754 operations in 1.00 seconds (1750.39 OP/s)
+Push Operations: 490, Pop Operations: 390
+Average Time per Operation: 0.5713 ms
+----------------------------------------
+Initial Heap Size: 10, Current Heap Size: 21, Pop Rate: 50%
+Performed 2411 operations in 1.00 seconds (2410.70 OP/s)
+Push Operations: 1211, Pop Operations: 1200
+Average Time per Operation: 0.4148 ms
+----------------------------------------
+Initial Heap Size: 20, Current Heap Size: 120, Pop Rate: 10%
+Performed 2943 operations in 1.00 seconds (2942.08 OP/s)
+Push Operations: 405, Pop Operations: 305
+Average Time per Operation: 0.3399 ms
+----------------------------------------
+Initial Heap Size: 20, Current Heap Size: 120, Pop Rate: 20%
+Performed 1585 operations in 1.00 seconds (1584.72 OP/s)
+Push Operations: 456, Pop Operations: 356
+Average Time per Operation: 0.6310 ms
+----------------------------------------
+Initial Heap Size: 20, Current Heap Size: 21, Pop Rate: 50%
+Performed 2433 operations in 1.00 seconds (2431.60 OP/s)
+Push Operations: 1217, Pop Operations: 1216
+Average Time per Operation: 0.4113 ms
+----------------------------------------
+Initial Heap Size: 50, Current Heap Size: 150, Pop Rate: 10%
+Performed 2381 operations in 1.00 seconds (2379.88 OP/s)
+Push Operations: 345, Pop Operations: 245
+Average Time per Operation: 0.4202 ms
+----------------------------------------
+Initial Heap Size: 50, Current Heap Size: 149, Pop Rate: 20%
+Performed 1268 operations in 1.00 seconds (1266.53 OP/s)
+Push Operations: 384, Pop Operations: 285
+Average Time per Operation: 0.7896 ms
+----------------------------------------
+Initial Heap Size: 50, Current Heap Size: 67, Pop Rate: 50%
+Performed 1525 operations in 1.00 seconds (1524.78 OP/s)
+Push Operations: 771, Pop Operations: 754
+Average Time per Operation: 0.6558 ms
+----------------------------------------
+Initial Heap Size: 100, Current Heap Size: 200, Pop Rate: 10%
+Performed 1752 operations in 1.00 seconds (1746.79 OP/s)
+Push Operations: 279, Pop Operations: 179
+Average Time per Operation: 0.5725 ms
+----------------------------------------
+Initial Heap Size: 100, Current Heap Size: 199, Pop Rate: 20%
+Performed 906 operations in 1.00 seconds (903.13 OP/s)
+Push Operations: 306, Pop Operations: 207
+Average Time per Operation: 1.1073 ms
+----------------------------------------
+Initial Heap Size: 100, Current Heap Size: 115, Pop Rate: 50%
+Performed 921 operations in 1.00 seconds (919.50 OP/s)
+Push Operations: 468, Pop Operations: 453
+Average Time per Operation: 1.0875 ms
+----------------------------------------
+
+Flushing remaing dirty blocks to DRAMs
+
