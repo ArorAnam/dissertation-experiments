@@ -66,19 +66,19 @@ int main() {
     
     std::srand(static_cast<unsigned>(std::time(nullptr))); // Use the standard library's time function
 
-    //std::vector<size_t> heap_sizes = {10, 20, 50, 100}; //, 500}; // 5000, 10000}; // Expanded heap sizes for a broader range
-    //std::vector<int> pop_rates = {10, 20, 50}; // Expanded pop rates in percentage
-    int heap_size = 10;
-    int pop_rate = 50;
+    std::vector<size_t> heap_sizes = {10, 20, 50, 100}; //, 500}; // 5000, 10000}; // Expanded heap sizes for a broader range
+    std::vector<int> pop_rates = {10, 20, 50}; // Expanded pop rates in percentage
+    // int heap_size = 10;
+    // int pop_rate = 50;
     int duration_seconds = 1; // Reduced duration for the benchmark
 
-    // for (size_t heap_size : heap_sizes) {
-    //     for (int pop_rate : pop_rates) {
-    //         benchmarkSTLHeapOperations(heap_size, pop_rate, duration_seconds);
-    //     }
-    // }
+    for (size_t heap_size : heap_sizes) {
+        for (int pop_rate : pop_rates) {
+            benchmarkSTLHeapOperations(heap_size, pop_rate, duration_seconds);
+        }
+    }
 
-    benchmarkSTLHeapOperations(heap_size, pop_rate, duration_seconds);
+    // benchmarkSTLHeapOperations(heap_size, pop_rate, duration_seconds);
 
     return 0;
 }
