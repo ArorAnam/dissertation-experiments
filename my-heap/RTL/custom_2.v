@@ -10,7 +10,6 @@ module C3_custom_SIMD_instruction (
     out_data, out_vdata1, out_vdata2
 );
     input clk, reset;
-
     input in_v;
     input [4:0] rd;
     input [2:0] vrd1, vrd2;
@@ -38,13 +37,6 @@ module C3_custom_SIMD_instruction (
         end
     end
 
-    assign out_v = valid_sr[`c3_pipe_cycles-1];
-    assign out_rd = rd_sr[5*`c3_pipe_cycles-1-:5];
-    assign out_vrd1 = vrd1_sr[3*`c3_pipe_cycles-1-:3];
-    assign out_vrd2 = vrd2_sr[3*`c3_pipe_cycles-1-:3];
-
-    ////// USER CODE HERE //////
-
     reg [31:0] heap_array[0:`HEAP_SIZE-1];  // Heap array
     integer n = 0;
     reg [7:0] i, parent, child;
@@ -53,7 +45,7 @@ module C3_custom_SIMD_instruction (
     reg exit_loop;
     reg busy;
 
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
             n <= 0;
             busy <= 0;
@@ -64,7 +56,7 @@ module C3_custom_SIMD_instruction (
             end
         end else if (in_v && !busy) begin
             busy <= 1;
-            case (vrd1)  // Assuming op_code is now mapped to vrd1
+            case (vrd1)
                 1: begin  // Push operation
                     heap_array[n] <= in_data;
                     i <= n;
@@ -79,7 +71,7 @@ module C3_custom_SIMD_instruction (
                             heap_array[parent] = temp;
                             i = parent;
                         end else begin
-                            exit_loop = 1;  // Used instead of 'break'
+                            exit_loop = 1;
                         end
                         count = count + 1;
                     end
@@ -103,7 +95,7 @@ module C3_custom_SIMD_instruction (
                                 heap_array[child] = temp;
                                 i = child;
                             end else begin
-                                exit_loop = 1;  // Used instead of 'break'
+                                exit_loop = 1;
                             end
                             count = count + 1;
                         end
@@ -112,6 +104,9 @@ module C3_custom_SIMD_instruction (
                         out_v <= 0;
                         busy <= 0;
                     end
+                end
+                default: begin
+                    busy <= 0;  // Ensure we don't get stuck in busy state
                 end
             endcase
         end
