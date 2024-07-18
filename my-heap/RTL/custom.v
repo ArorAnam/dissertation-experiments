@@ -38,7 +38,14 @@ module C3_custom_SIMD_instruction (
         end
     end
 
-    assign out_v = valid_sr[`c3_pipe_cycles-1];
+    //assign out_v = valid_sr[`c3_pipe_cycles-1];
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            out_v <= 0; // Reset condition
+        end else begin
+            out_v <= valid_sr[`c3_pipe_cycles-1]; // Update based on valid_sr status
+        end
+    end
     assign out_rd = rd_sr[5*`c3_pipe_cycles-1-:5];
     assign out_vrd1 = vrd1_sr[3*`c3_pipe_cycles-1-:3];
     assign out_vrd2 = vrd2_sr[3*`c3_pipe_cycles-1-:3];
