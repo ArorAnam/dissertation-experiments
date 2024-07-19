@@ -1,0 +1,447 @@
+$date
+	Fri Jul 19 17:56:54 2024
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module heap_tb $end
+$var wire 1 ! full $end
+$var wire 1 " empty $end
+$var wire 8 # data_out [7:0] $end
+$var reg 1 $ clk $end
+$var reg 8 % data_in [7:0] $end
+$var reg 1 & pop $end
+$var reg 1 ' push $end
+$var reg 1 ( rst_n $end
+$scope module uut $end
+$var wire 1 $ clk $end
+$var wire 8 ) data_in [7:0] $end
+$var wire 1 & pop $end
+$var wire 1 ' push $end
+$var wire 1 ( rst_n $end
+$var parameter 4 * HEAPIFY_DOWN $end
+$var parameter 4 + HEAPIFY_UP $end
+$var parameter 4 , IDLE $end
+$var parameter 4 - POP $end
+$var parameter 4 . PUSH $end
+$var reg 8 / data_out [7:0] $end
+$var reg 1 " empty $end
+$var reg 1 ! full $end
+$var reg 4 0 heap_size [3:0] $end
+$var reg 4 1 idx [3:0] $end
+$var reg 4 2 left_idx [3:0] $end
+$var reg 4 3 parent_idx [3:0] $end
+$var reg 4 4 right_idx [3:0] $end
+$var reg 4 5 smallest_idx [3:0] $end
+$var reg 4 6 state [3:0] $end
+$var reg 8 7 temp [7:0] $end
+$upscope $end
+$scope task pop_element $end
+$upscope $end
+$scope task push_element $end
+$var reg 8 8 value [7:0] $end
+$upscope $end
+$scope task wait_for_idle $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b1 .
+b10 -
+b0 ,
+b11 +
+b100 *
+$end
+#0
+$dumpvars
+bx 8
+bx 7
+b0 6
+bx 5
+bx 4
+bx 3
+bx 2
+bx 1
+b0 0
+bx /
+b0 )
+0(
+0'
+0&
+b0 %
+0$
+bx #
+1"
+0!
+$end
+#5000
+1$
+#10000
+0$
+1(
+#15000
+1$
+#20000
+1'
+b1111 %
+b1111 )
+0$
+b1111 8
+#25000
+b0 1
+b11 6
+0"
+b1 0
+1$
+#30000
+b0 %
+b0 )
+0'
+0$
+#35000
+b0 6
+b1111 3
+1$
+#40000
+b1010 8
+0$
+#45000
+1$
+#50000
+1'
+b1010 %
+b1010 )
+0$
+#55000
+b1 1
+b11 6
+b10 0
+1$
+#60000
+b0 %
+b0 )
+0'
+0$
+#65000
+b0 1
+b1010 7
+b0 3
+1$
+#70000
+0$
+#75000
+b0 6
+b1111 3
+1$
+#80000
+b101 8
+0$
+#85000
+1$
+#90000
+1'
+b101 %
+b101 )
+0$
+#95000
+b10 1
+b11 6
+b11 0
+1$
+#100000
+b0 %
+b0 )
+0'
+0$
+#105000
+b0 1
+b101 7
+b0 3
+1$
+#110000
+0$
+#115000
+b0 6
+b1111 3
+1$
+#120000
+b111 8
+0$
+#125000
+1$
+#130000
+1'
+b111 %
+b111 )
+0$
+#135000
+b11 1
+b11 6
+b100 0
+1$
+#140000
+b0 %
+b0 )
+0'
+0$
+#145000
+b1 1
+b111 7
+b1 3
+1$
+#150000
+0$
+#155000
+b0 6
+b0 3
+1$
+#160000
+b11 8
+0$
+#165000
+1$
+#170000
+1'
+b11 %
+b11 )
+0$
+#175000
+b100 1
+b11 6
+b101 0
+1$
+#180000
+b0 %
+b0 )
+0'
+0$
+#185000
+b1 1
+b11 7
+b1 3
+1$
+#190000
+0$
+#195000
+b0 1
+b0 3
+1$
+#200000
+0$
+#205000
+b0 6
+b1111 3
+1$
+#210000
+b1000 8
+0$
+#215000
+1$
+#220000
+1'
+b1000 %
+b1000 )
+0$
+#225000
+b101 1
+b11 6
+b110 0
+1$
+#230000
+b0 %
+b0 )
+0'
+0$
+#235000
+b10 1
+b1000 7
+b10 3
+1$
+#240000
+0$
+#245000
+b0 6
+b0 3
+1$
+#250000
+0$
+#255000
+1$
+#260000
+1&
+0$
+#265000
+b0 1
+b100 6
+b101 0
+b11 #
+b11 /
+1$
+#270000
+0&
+0$
+#275000
+b1 1
+b1010 7
+b1 5
+b10 4
+b1 2
+1$
+#280000
+0$
+#285000
+b100 1
+b100 5
+b100 4
+b11 2
+1$
+#290000
+0$
+#295000
+b0 6
+b1010 4
+b1001 2
+1$
+#300000
+0$
+#305000
+1$
+#310000
+1&
+0$
+#315000
+b0 1
+b100 6
+b100 0
+b101 #
+b101 /
+1$
+#320000
+0&
+0$
+#325000
+b1 1
+b1 5
+b10 4
+b1 2
+1$
+#330000
+0$
+#335000
+b0 6
+b100 4
+b11 2
+1$
+#340000
+0$
+#345000
+1$
+#350000
+1&
+0$
+#355000
+b0 1
+b100 6
+b11 0
+b111 #
+b111 /
+1$
+#360000
+0&
+0$
+#365000
+b10 1
+b1111 7
+b10 5
+b10 4
+b1 2
+1$
+#370000
+0$
+#375000
+b0 6
+b110 4
+b101 2
+1$
+#380000
+0$
+#385000
+1$
+#390000
+1&
+0$
+#395000
+b0 1
+b100 6
+b10 0
+b1000 #
+b1000 /
+1$
+#400000
+0&
+0$
+#405000
+b1 1
+b1 5
+b10 4
+b1 2
+1$
+#410000
+0$
+#415000
+b0 6
+b100 4
+b11 2
+1$
+#420000
+0$
+#425000
+1$
+#430000
+1&
+0$
+#435000
+b0 1
+b100 6
+b1 0
+b1010 #
+b1010 /
+1$
+#440000
+0&
+0$
+#445000
+b0 6
+b0 5
+b10 4
+b1 2
+1$
+#450000
+0$
+#455000
+1$
+#460000
+1&
+0$
+#465000
+b100 6
+b0 0
+b1111 #
+b1111 /
+1$
+#470000
+0&
+0$
+#475000
+b0 6
+1$
+#480000
+0$
+#485000
+1$
+#490000
+0$
