@@ -27,7 +27,7 @@ module C3_custom_SIMD_instruction (
     reg [5*`c3_pipe_cycles-1:0] rd_sr;
     reg [3*`c3_pipe_cycles-1:0] vrd1_sr, vrd2_sr;
 
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
             valid_sr <= 0; rd_sr <= 0; vrd1_sr <= 0; vrd2_sr <= 0;
         end else begin
@@ -38,7 +38,6 @@ module C3_custom_SIMD_instruction (
         end
     end
 
-    //assign out_v = valid_sr[`c3_pipe_cycles-1];
     always @(posedge clk or posedge reset) begin
         if (reset) begin
             out_v <= 0; // Reset condition
@@ -46,6 +45,7 @@ module C3_custom_SIMD_instruction (
             out_v <= valid_sr[`c3_pipe_cycles-1]; // Update based on valid_sr status
         end
     end
+    
     assign out_rd = rd_sr[5*`c3_pipe_cycles-1-:5];
     assign out_vrd1 = vrd1_sr[3*`c3_pipe_cycles-1-:3];
     assign out_vrd2 = vrd2_sr[3*`c3_pipe_cycles-1-:3];
@@ -54,13 +54,14 @@ module C3_custom_SIMD_instruction (
 
     reg [31:0] heap_array[0:`HEAP_SIZE-1];  // Heap array
     integer n = 0;
-    reg [7:0] i, parent, child;
+    reg [8:0] i;  // Changed to 9 bits to accommodate 256 elements
+    reg [7:0] parent, child;  // Parent and child can stay as 8 bits
     reg [31:0] temp;
     integer count;
     reg exit_loop;
     reg busy;
 
-    always @(posedge clk) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
             n <= 0;
             busy <= 0;
@@ -121,6 +122,9 @@ module C3_custom_SIMD_instruction (
                     end
                 end
             endcase
+        end else if (!in_v) begin
+            busy <= 0;  // Ensure busy flag is reset when in_v is low
         end
     end
 endmodule // C3_custom_SIMD_instruction
+
