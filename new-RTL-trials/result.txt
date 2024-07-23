@@ -1,0 +1,163 @@
+VCD info: dumpfile heap_tb.vcd opened for output.
+Starting simulation
+Applying reset
+Pushing element  36
+Pushing value  36
+Heap is idle
+Pushing element 129
+Pushing value 129
+Heapify up: swapping 129 and  36
+Heap is idle
+Pushing element   9
+Pushing value   9
+Heap is idle
+Pushing element  99
+Pushing value  99
+Heapify up: swapping  99 and  36
+Heap is idle
+Pushing element  13
+Pushing value  13
+Heap is idle
+Pushing element 141
+Pushing value 141
+Heapify up: swapping 141 and   9
+Heapify up: swapping 141 and 129
+Heap is idle
+Pushing element 101
+Pushing value 101
+Heap is idle
+Pushing element  18
+Pushing value  18
+Heap is idle
+Pushing element   1
+Pushing value   1
+Heap is idle
+Pushing element  13
+Pushing value  13
+Heap is idle
+Pushing element 118
+Pushing value 118
+Heapify up: swapping 118 and  13
+Heapify up: swapping 118 and  99
+Heap is idle
+Pushing element  61
+Pushing value  61
+Heapify up: swapping  61 and   9
+Heap is idle
+Pushing element 237
+Pushing value 237
+Heapify up: swapping 237 and  61
+Heapify up: swapping 237 and 129
+Heapify up: swapping 237 and 141
+Heap is idle
+Pushing element 140
+Pushing value 140
+Heapify up: swapping 140 and 101
+Heap is idle
+Pushing element 249
+Pushing value 249
+Heapify up: swapping 249 and 140
+Heapify up: swapping 249 and 141
+Heapify up: swapping 249 and 237
+Heap is idle
+Pushing element 198
+Pushing value 198
+Heapify up: swapping 198 and  18
+Heapify up: swapping 198 and  36
+Heapify up: swapping 198 and 118
+Heap is idle
+Pushing element 197
+Heap is idle
+Pushing element 170
+Heap is idle
+Pushing element 229
+Heap is idle
+Pushing element 119
+Heap is idle
+Popping element
+Popping value 249
+Heapify down: swapping  18 and 237
+Heapify down: swapping  18 and 141
+Heapify down: swapping  18 and 140
+Heap is idle
+Popping element
+Popping value 237
+Heapify down: swapping  18 and 198
+Heapify down: swapping  18 and 118
+Heapify down: swapping  18 and  36
+Heap is idle
+Popping element
+Popping value 198
+Heapify down: swapping 101 and 141
+Heapify down: swapping 101 and 140
+Heap is idle
+Popping element
+Popping value 141
+Heapify down: swapping  61 and 140
+Heapify down: swapping  61 and 129
+Heap is idle
+Popping element
+Popping value 140
+Heapify down: swapping   9 and 129
+Heapify down: swapping   9 and 101
+Heap is idle
+Popping element
+Popping value 129
+Heapify down: swapping  13 and 118
+Heapify down: swapping  13 and  99
+Heap is idle
+Popping element
+Popping value 118
+Heapify down: swapping  13 and 101
+Heapify down: swapping  13 and  61
+Heap is idle
+Popping element
+Popping value 101
+Heapify down: swapping   1 and  99
+Heapify down: swapping   1 and  36
+Heapify down: swapping   1 and  18
+Heap is idle
+Popping element
+Popping value  99
+Heapify down: swapping   1 and  61
+Heapify down: swapping   1 and  13
+Heap is idle
+Popping element
+Popping value  61
+Heapify down: swapping   9 and  36
+Heapify down: swapping   9 and  18
+Heap is idle
+Popping element
+Popping value  36
+Heapify down: swapping   1 and  18
+Heapify down: swapping   1 and  13
+Heap is idle
+Popping element
+Popping value  18
+Heapify down: swapping   1 and  13
+Heapify down: swapping   1 and   9
+Heap is idle
+Popping element
+Popping value  13
+Heapify down: swapping   1 and  13
+Heap is idle
+Popping element
+Popping value  13
+Heapify down: swapping   1 and   9
+Heap is idle
+Popping element
+Popping value   9
+Heap is idle
+Popping element
+Popping value   1
+Heap is idle
+Popping element
+Popping value   1
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+larger_heap_tb.v:64: $finish called at 1600000 (1ps)

@@ -4,8 +4,7 @@
 module C3_custom_SIMD_instruction (
     input clk,
     input reset,
-    input push,
-    input pop,
+    input in_v,
     input [4:0] rd,
     input [2:0] vrd1, vrd2,
     input [31:0] in_data,
@@ -27,7 +26,7 @@ module C3_custom_SIMD_instruction (
             vrd1_sr <= 0;
             vrd2_sr <= 0;
         end else begin
-            valid_sr <= (valid_sr << 1) | push;            
+            valid_sr <= (valid_sr << 1) | in_v;            
             rd_sr <= (rd_sr << 5) | rd;
             vrd1_sr <= (vrd1_sr << 3) | vrd1;
             vrd2_sr <= (vrd2_sr << 3) | vrd2;
@@ -38,6 +37,11 @@ module C3_custom_SIMD_instruction (
     assign out_rd = rd_sr[5*`c3_pipe_cycles-1-:5];
     assign out_vrd1 = vrd1_sr[3*`c3_pipe_cycles-1-:3];
     assign out_vrd2 = vrd2_sr[3*`c3_pipe_cycles-1-:3];
+
+    // Internal registers for heap control
+    reg heap_push, heap_pop;
+    wire heap_empty, heap_full;
+    reg [7:0] heap_data_out;
 
     // Heap RTL code
     reg [7:0] heap_array [0:15]; // Array of 16 vector registers, each 8 bits wide
@@ -52,7 +56,6 @@ module C3_custom_SIMD_instruction (
     reg [4:0] largest_idx;
 
     reg [7:0] temp;
-    reg [7:0] heap_data_out;
 
     localparam IDLE = 5'd0,
                PUSH = 5'd1,
@@ -70,13 +73,13 @@ module C3_custom_SIMD_instruction (
         end else begin
             case (state)
                 IDLE: begin
-                    if (push && heap_size < 16) begin
+                    if (heap_push && !heap_full) begin
                         $display("Pushing value %d", in_data[7:0]);
                         heap_size <= heap_size + 1;
                         heap_array[heap_size] <= in_data[7:0]; // Add new element at the end
                         state <= HEAPIFY_UP;
                         idx <= heap_size; // Start heapify-up from the newly added element
-                    end else if (pop && heap_size > 0) begin
+                    end else if (heap_pop && !heap_empty) begin
                         $display("Popping value %d", heap_array[0]);
                         heap_data_out <= heap_array[0]; // Output the root element
                         heap_array[0] <= heap_array[heap_size-1]; // Move the last element to the root
@@ -121,6 +124,19 @@ module C3_custom_SIMD_instruction (
                 end
 
             endcase
+        end
+    end
+
+    // Control logic for heap operations
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            heap_push <= 0;
+            heap_pop <= 0;
+        end else begin
+            // Custom control logic to determine when to push/pop to/from the heap
+            // For example, using in_v to trigger push/pop operations
+            heap_push <= in_v && !heap_full; // Push if valid and not full
+            heap_pop <= !in_v && !heap_empty; // Pop if not valid and not empty
         end
     end
 

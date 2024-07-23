@@ -1,0 +1,84 @@
+VCD info: dumpfile C3_custom_SIMD_instruction_tb.vcd opened for output.
+Starting simulation
+Applying reset
+Pushing element  36
+Pushing value  36
+Heap is idle
+Popping value  36
+Pushing element 129
+Heap is idle
+Pushing element   9
+Pushing value   9
+Heap is idle
+Popping value   9
+Pushing element  99
+Heap is idle
+Pushing element  13
+Pushing value  13
+Heap is idle
+Popping value  13
+Pushing element 141
+Heap is idle
+Pushing element 101
+Pushing value 101
+Heap is idle
+Popping value 101
+Pushing element  18
+Heap is idle
+Pushing element   1
+Pushing value   1
+Heap is idle
+Popping value   1
+Pushing element  13
+Heap is idle
+Pushing element 118
+Pushing value 118
+Heap is idle
+Popping value 118
+Pushing element  61
+Heap is idle
+Pushing element 237
+Pushing value 237
+Heap is idle
+Popping value 237
+Pushing element 140
+Heap is idle
+Pushing element 249
+Pushing value 249
+Heap is idle
+Popping value 249
+Pushing element 198
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+Popping element
+Heap is idle
+custom_tb.v:85: $finish called at 920000 (1ps)

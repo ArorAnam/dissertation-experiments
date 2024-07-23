@@ -5,8 +5,7 @@ module C3_custom_SIMD_instruction_tb;
     // Inputs
     reg clk;
     reg reset;
-    reg push;
-    reg pop;
+    reg in_v;
     reg [4:0] rd;
     reg [2:0] vrd1, vrd2;
     reg [31:0] in_data;
@@ -23,8 +22,7 @@ module C3_custom_SIMD_instruction_tb;
     C3_custom_SIMD_instruction uut (
         .clk(clk), 
         .reset(reset), 
-        .push(push), 
-        .pop(pop), 
+        .in_v(in_v), 
         .rd(rd), 
         .vrd1(vrd1), 
         .vrd2(vrd2), 
@@ -47,8 +45,7 @@ module C3_custom_SIMD_instruction_tb;
         // Initialize Inputs
         clk = 0;
         reset = 0;
-        push = 0;
-        pop = 0;
+        in_v = 0;
         rd = 0;
         vrd1 = 0;
         vrd2 = 0;
@@ -95,9 +92,9 @@ module C3_custom_SIMD_instruction_tb;
             @(negedge clk);
             $display("Pushing element %d", value);
             in_data = value;
-            push = 1;
+            in_v = 1;
             @(negedge clk);
-            push = 0;
+            // in_v = 0;
             in_data = 0;
             wait_for_idle();
         end
@@ -107,9 +104,8 @@ module C3_custom_SIMD_instruction_tb;
         begin
             @(negedge clk);
             $display("Popping element");
-            pop = 1;
+            in_v = 0;
             @(negedge clk);
-            pop = 0;
             wait_for_idle();
         end
     endtask

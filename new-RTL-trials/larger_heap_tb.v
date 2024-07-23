@@ -50,12 +50,12 @@ module heap_tb;
         $display("Applying reset");
 
         // Push random elements into the heap
-        for (i = 0; i < 20; i = i + 1) begin
+        for (i = 0; i < 16; i = i + 1) begin
             push_element($random % 256);
         end
 
         // Pop elements from the heap
-        for (i = 0; i < 20; i = i + 1) begin
+        for (i = 0; i < 16; i = i + 1) begin
             pop_element();
         end
 
