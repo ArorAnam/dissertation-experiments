@@ -5,6 +5,7 @@ module C3_custom_SIMD_instruction_tb;
     // Inputs
     reg clk;
     reg reset;
+    reg in_v;
     reg push;
     reg pop;
     reg [4:0] rd;
@@ -23,6 +24,7 @@ module C3_custom_SIMD_instruction_tb;
     C3_custom_SIMD_instruction uut (
         .clk(clk), 
         .reset(reset), 
+        .in_v(in_v), 
         .push(push), 
         .pop(pop), 
         .rd(rd), 
@@ -47,6 +49,7 @@ module C3_custom_SIMD_instruction_tb;
         // Initialize Inputs
         clk = 0;
         reset = 0;
+        in_v = 0;
         push = 0;
         pop = 0;
         rd = 0;
@@ -70,8 +73,8 @@ module C3_custom_SIMD_instruction_tb;
         reset = 0;
         $display("Applying reset");
 
-        // Push random elements into the heap (up to 16 elements)
-        for (i = 0; i < 16; i = i + 1) begin
+        // Push random elements into the heap (up to HEAP_SIZE elements)
+        for (i = 0; i < `HEAP_SIZE; i = i + 1) begin
             push_element($random % 256);
         end
 
@@ -79,7 +82,7 @@ module C3_custom_SIMD_instruction_tb;
         #100;
 
         // Pop elements from the heap
-        for (i = 0; i < 16; i = i + 1) begin
+        for (i = 0; i < `HEAP_SIZE; i = i + 1) begin
             pop_element();
         end
 
