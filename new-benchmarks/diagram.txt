@@ -1,0 +1,37 @@
++--------------------------------+             +-----------------------------------+
+| Software Workload Selection &  |             | STL Heap vs. Custom C++           |
+| Profiling                      |             | Implementation                    |
+| - SQLite                       |             | - Benchmarking Performance Metrics|
+| - Data Streaming Algorithms    |             | - Execution Time                  |
+| - C++ STL Algorithms           |             +------------------+----------------+
++----------------+---------------+                             |
+                 |                                           |
+                 | Profiling to identify                     |
+                 | the most suitable for                     |
+                 | acceleration                              |
+                 |                                           |
+                 v                                           v
+         +-------+-----------+                      +-------+----------+
+         | Decision Making  |                      | RTL Coding in    |
+         | - Select STL Heap|                      | Verilog for Heap |
+         |   Algorithms     |                      | Algorithms       |
+         +------------------+                      +------------------+
+                 |                                           |
+                 | Choosing based on profiling              | Synthesizing custom
+                 | and potential for optimization           | hardware instructions
+                 |                                           |
+                 v                                           v
++----------------+-----------------+           +------------+-------------+
+| Integration with Simodense       |           | Simulation and Performance|
+| Softcore for Custom SIMD         |           | Analysis                  |
+| Instructions                      |           | - Simulation Setup        |
+| - Embedding RTL in a softcore    |           | - Performance Gains       |
++----------------------------------+           +------------+-------------+
+                                                                |
+                                                                |
+                                                                v
+                                                       +--------+-------+
+                                                       | Result Comparison|
+                                                       | - Compare performance|
+                                                       |   enhancements     |
+                                                       +--------------------+

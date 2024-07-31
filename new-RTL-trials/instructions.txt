@@ -1,0 +1,13 @@
+
+
+#define MATCH_HEAP_PUSH 0x0000002B // Custom encoding for heap_push
+#define MASK_HEAP_PUSH  0xFE00707F // Mask for heap_push
+
+#define MATCH_HEAP_POP  0x0000102B // Custom encoding for heap_pop
+#define MASK_HEAP_POP   0xFE00707F // Mask for heap_pop
+
+
+// Custom heap_push instruction
+    {"heap_push", 0, INSN_CLASS_I, "d,s", MATCH_HEAP_PUSH, MASK_HEAP_PUSH, match_opcode, match_funct3, match_funct7},
+// Custom heap_pop instruction
+    {"heap_pop", 0, INSN_CLASS_I, "d", MATCH_HEAP_POP, MASK_HEAP_POP, match_opcode, match_funct3, match_funct7},
