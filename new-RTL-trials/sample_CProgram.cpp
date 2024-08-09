@@ -8,6 +8,7 @@ void heap_push(uint32_t value);
 uint32_t heap_pop();
 
 void main(int argc, char** argv) {
+    // while(20);
     printf("Inside Main\n");
 
     // uint32_t data[10];
@@ -50,7 +51,7 @@ void main(int argc, char** argv) {
     //     printf("Popped value: %u\n", popped_value); // Print popped value for debugging
     // }
 
-    while (1);
+    while (10);
 
     uint32_t popped_value = heap_pop();
     printf("Popped value: %u\n", popped_value);
