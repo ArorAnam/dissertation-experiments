@@ -10,7 +10,7 @@ module C3_custom_SIMD_instruction (
     input [31:0] in_data,
     input [`VLEN-1:0] in_vdata1, in_vdata2,
     output reg out_v,
-    output [4:0] out_rd,
+    output reg [4:0] out_rd,
     output [2:0] out_vrd1, out_vrd2,
     output wire [31:0] out_data,
     output [`VLEN-1:0] out_vdata1, out_vdata2
@@ -67,6 +67,7 @@ module C3_custom_SIMD_instruction (
                         state <= HEAPIFY_DOWN;
                         idx <= 0; // Start heapify-down from the root
                         out_v <= 1; // Set out_v to indicate valid output
+                        out_rd <= rd; // Assign the rd value to out_rd
                         out_data_reg <= heap_data_out; // Assign the popped value to the register
                     end
                 end
@@ -113,7 +114,7 @@ module C3_custom_SIMD_instruction (
     end
 
     assign out_data = out_data_reg;
-    assign out_rd = 0;
+    // assign out_rd = rd;
     assign out_vrd1 = 0;
     assign out_vrd2 = 0;
     assign out_vdata1 = 0;
