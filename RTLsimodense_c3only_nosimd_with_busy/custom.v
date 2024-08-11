@@ -34,15 +34,14 @@
 // endmodule // C3_custom_instruction
 
 
-`define VLEN 128 // Adjust VLEN as needed
-`define HEAP_SIZE 25 // Define the heap size
+`define HEAP_SIZE 32 // Define the heap size
 `define HEAP_IDX_WIDTH $clog2(`HEAP_SIZE) // Calculate the necessary bit width
 
 module C3_custom_instruction (
     input clk,
     input reset,
     input in_v,
-    input [4:0] rd, // Used to differentiate between push (0) and pop (1)
+    input [4:0] rd, // Used to differentiate between push (0) and pop (non-zero)
     input [31:0] in_data,
     output reg out_v,
     output reg [4:0] out_rd, // Pass the destination register ID
@@ -50,11 +49,9 @@ module C3_custom_instruction (
     output reg busy
 );
 
-	// assign busy = 0;
     // Heap RTL code
     reg [31:0] heap_array [0:`HEAP_SIZE-1]; // Array of HEAP_SIZE vector registers, each 32 bits wide
     reg [`HEAP_IDX_WIDTH-1:0] heap_size;
-    reg [`HEAP_IDX_WIDTH-1:0] i;
 
     reg [4:0] state;
     reg [`HEAP_IDX_WIDTH-1:0] idx;
@@ -72,47 +69,42 @@ module C3_custom_instruction (
                HEAPIFY_UP = 5'd3,
                HEAPIFY_DOWN = 5'd4;
 
-    // Register to hold the value to be assigned to out_data
-    reg [31:0] out_data_reg;
-
-    always @(posedge clk or posedge reset) begin
+    integer i;
+    always @(posedge clk) begin
         if (reset) begin
             heap_size <= 0;
             state <= IDLE;
             out_v <= 0;
             busy <= 0;
-            out_data_reg <= 0;
+            out_data <= 0;
             out_rd <= 5'd0;
             for (i = 0; i < `HEAP_SIZE; i = i + 1) begin
                 heap_array[i] <= 32'd0; // Initialize all elements to zero
             end
         end else begin
-            out_v <= 0;
-            // busy <= 1;
+            out_v <= 0; // Default to 0 unless set in specific states
             case (state)
                 IDLE: begin
                     busy <= 0;
-                    if (in_v && ( rd == 5'd0 ) && heap_size < `HEAP_SIZE) begin // Push operation
+                    if (in_v && rd == 5'd0 && heap_size < `HEAP_SIZE) begin // Push operation
                         $display("Pushing value %d at time %t", in_data, $time);
                         heap_array[heap_size] <= in_data;
                         heap_size <= heap_size + 1;
                         state <= HEAPIFY_UP;
                         idx <= heap_size; // Start heapify-up from the newly added element
-                    end else if (in_v && ( rd == 5'd1 ) && heap_size > 0) begin // Pop operation
+                    end else if (in_v && rd != 5'd0 && heap_size > 0) begin // Pop operation (any rd != x0)
                         $display("Popping value %d at time %t", heap_array[0], $time);
                         heap_data_out <= heap_array[0]; // Output the root element
                         heap_array[0] <= heap_array[heap_size-1]; // Move the last element to the root
                         heap_size <= heap_size - 1;
                         state <= HEAPIFY_DOWN;
                         idx <= 0; // Start heapify-down from the root
-                        out_v <= 1; // Set out_v to indicate valid output
-                        out_data <= heap_data_out; // Assign the popped value to the register
                         out_rd <= rd; // Pass the destination register ID
                     end
                 end
 
                 HEAPIFY_UP: begin
-					// busy <= 1;
+                    busy <= 1;
                     parent_idx = (idx - 1) >> 1;
                     if (idx > 0 && heap_array[idx] > heap_array[parent_idx]) begin
                         $display("Heapify up: swapping %d and %d at time %t", heap_array[idx], heap_array[parent_idx], $time);
@@ -126,7 +118,7 @@ module C3_custom_instruction (
                 end
 
                 HEAPIFY_DOWN: begin
-					// busy <= 1;
+                    busy <= 1;
                     left_idx = 2*idx + 1;
                     right_idx = 2*idx + 2;
                     largest_idx = idx;
@@ -143,6 +135,8 @@ module C3_custom_instruction (
                         heap_array[largest_idx] = temp;
                         idx = largest_idx; // Move down to the largest child index
                     end else begin
+                        out_v <= 1; // Set out_v when HEAPIFY_DOWN is done
+                        out_data <= heap_data_out; // Assign the popped value to the register
                         state <= IDLE;
                     end
                 end
@@ -153,8 +147,5 @@ module C3_custom_instruction (
             endcase
         end
     end
-
-    // assign out_data = out_data_reg;
 endmodule // C3_custom_instruction
-
 
