@@ -78,6 +78,13 @@ module C3_custom_instruction (
             busy <= 0;
             out_data <= 0;
             out_rd <= 5'd0;
+            idx <= 0;
+            parent_idx <= 0;
+            left_idx <= 0;
+            right_idx <= 0;
+            largest_idx <= 0;
+            temp <= 0;
+            heap_data_out <= 0;
             for (i = 0; i < `HEAP_SIZE; i = i + 1) begin
                 heap_array[i] <= 32'd0; // Initialize all elements to zero
             end
