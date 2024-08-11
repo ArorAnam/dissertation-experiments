@@ -93,12 +93,14 @@ module C3_custom_instruction (
             case (state)
                 IDLE: begin
                     busy <= 0;
+                    out_v <= 0; // Reset out_v at the start of IDLE
                     if (in_v && rd == 5'd0 && heap_size < `HEAP_SIZE) begin // Push operation
                         $display("Pushing value %d at time %t", in_data, $time);
                         heap_array[heap_size] <= in_data;
                         heap_size <= heap_size + 1;
                         state <= HEAPIFY_UP;
                         idx <= heap_size; // Start heapify-up from the newly added element
+                        busy <= 1;
                     end else if (in_v && rd != 5'd0 && heap_size > 0) begin // Pop operation (any rd != x0)
                         $display("Popping value %d at time %t", heap_array[0], $time);
                         heap_data_out <= heap_array[0]; // Output the root element
@@ -107,11 +109,11 @@ module C3_custom_instruction (
                         state <= HEAPIFY_DOWN;
                         idx <= 0; // Start heapify-down from the root
                         out_rd <= rd; // Pass the destination register ID
+                        busy <= 1;
                     end
                 end
 
                 HEAPIFY_UP: begin
-                    busy <= 1;
                     parent_idx = (idx - 1) >> 1;
                     if (idx > 0 && heap_array[idx] > heap_array[parent_idx]) begin
                         $display("Heapify up: swapping %d and %d at time %t", heap_array[idx], heap_array[parent_idx], $time);
@@ -121,11 +123,11 @@ module C3_custom_instruction (
                         idx = parent_idx; // Move up to the parent index
                     end else begin
                         state <= IDLE;
+                        busy <= 0;
                     end
                 end
 
                 HEAPIFY_DOWN: begin
-                    busy <= 1;
                     left_idx = 2*idx + 1;
                     right_idx = 2*idx + 2;
                     largest_idx = idx;
@@ -145,11 +147,13 @@ module C3_custom_instruction (
                         out_v <= 1; // Set out_v when HEAPIFY_DOWN is done
                         out_data <= heap_data_out; // Assign the popped value to the register
                         state <= IDLE;
+                        busy <= 0;
                     end
                 end
 
                 default: begin
                     state <= IDLE;
+                    busy <= 0;
                 end
             endcase
         end
