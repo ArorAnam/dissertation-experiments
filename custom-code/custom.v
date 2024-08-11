@@ -19,7 +19,7 @@ module C3_custom_SIMD_instruction (
     // Heap RTL code
     reg [31:0] heap_array [0:`HEAP_SIZE-1]; // Array of HEAP_SIZE vector registers, each 32 bits wide
     reg [`HEAP_IDX_WIDTH-1:0] heap_size;
-    reg [`HEAP_IDX_WIDTH-1:0] i;
+    reg [`HEAP_IDX_WIDTH+1-1:0] i;
 
     reg [4:0] state;
     reg [`HEAP_IDX_WIDTH-1:0] idx;
@@ -39,7 +39,7 @@ module C3_custom_SIMD_instruction (
 
     // Register to hold the value to be assigned to out_data
     reg [31:0] out_data_reg;
-
+    // integer i;
     always @(posedge clk or posedge reset) begin
         if (reset) begin
             heap_size <= 0;
