@@ -59,38 +59,19 @@ void main(int argc, char** argv) {
     return;
 }
 
-// void heap_push(uint32_t value) {
-//     int destination_register;
-//     asm volatile (
-//         "c3 %0, %1, %2"
-//         :: "r"(destination_register), "r"(value), "I"(0) // Specify input operands, skip output section
-//     );
-// }
-
-// uint32_t heap_pop() {
-//     int destination_register;
-//     asm volatile (
-//         "c3 %0, %1, %2"
-//         :: "r"(destination_register), "r"(0), "I"(1) // Specify input operands, skip output section
-//     );
-//     return destination_register;
-// }
-
 void heap_push(uint32_t value) {
-    int destination_register;
     asm volatile (
-        "c3 %0, %1, %2"
-        : "=r"(destination_register) // output to destination_register
-        : "r"(value), "I"(0)          // input value, and specify rd = 0 (push)
+        "c3 x0, %0, %1"  // No output, just input operands
+        :: "r"(value), "I"(0) // Push operation (rd = 0)
     );
 }
 
 uint32_t heap_pop() {
-    int destination_register;
+    uint32_t result;
     asm volatile (
-        "c3 %0, %1, %2"
-        : "=r"(destination_register)  // output to destination_register
-        : "r"(0), "I"(1)              // input is a dummy value, specify rd = 1 (pop)
+        "c3 %0, x0, %1"  // Store result in the output operand
+        : "=r"(result)   // Output operand
+        : "I"(0)         // Pop operation (rd = 1), input is dummy
     );
-    return destination_register;
+    return result;
 }
