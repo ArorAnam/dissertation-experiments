@@ -116,7 +116,7 @@ module C3_custom_instruction (
                 HEAPIFY_UP: begin
                     parent_idx = (idx - 1) >> 1;
                     if (idx > 0 && heap_array[idx] > heap_array[parent_idx]) begin
-                        $display("Heapify up: swapping %d and %d at time %t", heap_array[idx], heap_array[parent_idx], $time);
+                        // $display("Heapify up: swapping %d and %d at time %t", heap_array[idx], heap_array[parent_idx], $time);
                         temp = heap_array[idx];
                         heap_array[idx] = heap_array[parent_idx];
                         heap_array[parent_idx] = temp;
@@ -138,7 +138,7 @@ module C3_custom_instruction (
                         largest_idx = right_idx;
 
                     if (largest_idx != idx) begin
-                        $display("Heapify down: swapping %d and %d at time %t", heap_array[idx], heap_array[largest_idx], $time);
+                        // $display("Heapify down: swapping %d and %d at time %t", heap_array[idx], heap_array[largest_idx], $time);
                         temp = heap_array[idx];
                         heap_array[idx] = heap_array[largest_idx];
                         heap_array[largest_idx] = temp;
